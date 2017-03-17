@@ -1,5 +1,11 @@
 package dados;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,6 +24,7 @@ public class RepositorioVoos implements IRepositorioVoo{
 	public static RepositorioVoos getInstance(){
 	    if (instance == null) {
 		      instance = new RepositorioVoos();
+		      instance = lerDoArquivo();
 		    }
 		    return instance;
 	}
@@ -89,7 +96,7 @@ public class RepositorioVoos implements IRepositorioVoo{
 			}
 		}
 	}
-	/*
+	
 	public void salvarArquivo() {
 
 		if (instance == null) {
@@ -116,7 +123,7 @@ public class RepositorioVoos implements IRepositorioVoo{
 		    }
 		  }
 	
-	private static RepositorioVoos lerDoArquivo() {
+	private static RepositorioVoos lerDoArquivo(){
 		RepositorioVoos instanciaLocal = null;
 
 	    File arqVoos = new File("RepositorioVoos.dat");
@@ -140,6 +147,6 @@ public class RepositorioVoos implements IRepositorioVoo{
 
 	    return instanciaLocal;
 	  }
-	  */
+	  
 	
 }

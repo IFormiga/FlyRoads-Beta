@@ -1,5 +1,11 @@
 package dados;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,6 +22,7 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 	public static RepositorioPassagens getInstance(){
 	    if (instance == null) {
 		      instance = new RepositorioPassagens();
+		      instance = lerDoArquivo();
 		    }
 		    return instance;
 	}
@@ -81,7 +88,7 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 		}
 		return r;
 	}
-	/*
+	
 	public void salvarArquivo() {
 
 		if (instance == null) {
@@ -132,5 +139,5 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 
 	    return instanciaLocal;
 	  }
-	*/
+	
 }
