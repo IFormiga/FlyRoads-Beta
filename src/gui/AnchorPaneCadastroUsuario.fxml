@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="449.0" prefWidth="428.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="gui.AnchorPaneCadastroUsuarioController">
+   <children>
+      <SplitPane dividerPositions="0.5073891625615764" layoutX="-5.0" layoutY="-6.0" prefHeight="410.0" prefWidth="418.0" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-6.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="370.0" prefWidth="207.0">
+               <children>
+                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="460.0" prefWidth="218.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="TableCollumNome" prefWidth="75.0" text="Nome" />
+                      <TableColumn fx:id="TableCollumCPF" prefWidth="75.0" text="CPF" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label layoutX="11.0" layoutY="3.0" text="Informações Usuarios" textFill="#0b0ee4">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Label>
+                  <GridPane layoutX="34.0" layoutY="130.0" prefHeight="143.0" prefWidth="151.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Nome:">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="LabelUsuarioNome" text="Label" GridPane.columnIndex="1" />
+                        <Label text="Sexo:" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="LabelUsuarioSexo" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Idade:" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="LabelUsuarioIdade" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Endereço:" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="LabelUsuarioEndereço" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+                  <Group layoutX="8.0" layoutY="326.0" />
+                  <Group layoutX="15.0" layoutY="355.0">
+                     <children>
+                        <Button fx:id="ButtonRemover" layoutX="118.0" mnemonicParsing="false" text="Remover" />
+                        <Button fx:id="ButtonAlterar" layoutX="58.0" mnemonicParsing="false" text="Alterar" />
+                        <Button fx:id="ButtonInserir" mnemonicParsing="false" text="Inserir" />
+                     </children>
+                  </Group>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
