@@ -6,21 +6,22 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import negocio.Voo;
-public class RepositorioVoos implements IRepositorioVoo{
+public class RepositorioVoos implements IRepositorioVoo, Serializable{
 	private List<Voo> listaVoos;
 	private static RepositorioVoos instance;
-	
+
 	//lista de passageiros pra usar nas regras de negocio
-	
+
 	private RepositorioVoos(){
 		this.listaVoos = new ArrayList<Voo>();
 	}
-	
+
 	public static RepositorioVoos getInstance(){
 	    if (instance == null) {
 		      instance = new RepositorioVoos();
@@ -28,7 +29,7 @@ public class RepositorioVoos implements IRepositorioVoo{
 		    }
 		    return instance;
 	}
-	
+
 	public boolean cadastrar(Voo voo){
 		try{
 			listaVoos.add(voo);
@@ -38,12 +39,12 @@ public class RepositorioVoos implements IRepositorioVoo{
 		}
 		return true;
 	}
-	public boolean remover(int codigoDoVoo){
-		int cod;
+	public boolean remover(String codigoDoVoo){
+		String cod;
 		boolean r = false;
 		for(Voo voo2 : listaVoos){
 			cod = voo2.getCodigoDoVoo();
-			if(cod == codigoDoVoo){
+			if(cod.equals(codigoDoVoo)){
 				listaVoos.remove(voo2);
 				r = true;
 			}
@@ -53,31 +54,31 @@ public class RepositorioVoos implements IRepositorioVoo{
 	public List<Voo> listar(){
 		return Collections.unmodifiableList(this.listaVoos);
 	}
-	
-	public Voo procurar(int codigoDoVoo){
-		int cod;
+
+	public Voo procurar(String codigoDoVoo){
+		String cod;
 		Voo r = null;
 		for(Voo voo2 : listaVoos){
 			cod = voo2.getCodigoDoVoo();
-			if(cod == codigoDoVoo){
+			if(cod.equals(codigoDoVoo)){
 				r = voo2;
 			}
 		}
 		return r;
 	}
-	
-	public boolean existe(int codigoDoVoo){
-		int cod;
+
+	public boolean existe(String codigoDoVoo){
+		String cod;
 		boolean r = false;
 		for(Voo voo2 : listaVoos){
 			cod = voo2.getCodigoDoVoo();
-			if(cod == codigoDoVoo){
-				r = true;	
+			if(cod.equals(codigoDoVoo)){
+				r = true;
 			}
 		}
 		return r;
 	}
-	
+
 	public boolean verificaHorario(Voo v){
 		boolean verificacao = false;
 		for(Voo voo : listaVoos){
@@ -87,16 +88,16 @@ public class RepositorioVoos implements IRepositorioVoo{
 		}
 		return verificacao;
 	}
-	
+
 	public void alterar(Voo alterado){
 		for(Voo voo2 : listaVoos){
-			if(voo2.getCodigoDoVoo() == alterado.getCodigoDoVoo()){
+			if(voo2.getCodigoDoVoo().equals(alterado.getCodigoDoVoo())){
 				listaVoos.remove(voo2);
 				listaVoos.add(alterado);
 			}
 		}
 	}
-	
+
 	public void salvarArquivo() {
 
 		if (instance == null) {
@@ -122,7 +123,7 @@ public class RepositorioVoos implements IRepositorioVoo{
 		      }
 		    }
 		  }
-	
+
 	private static RepositorioVoos lerDoArquivo(){
 		RepositorioVoos instanciaLocal = null;
 
@@ -147,6 +148,6 @@ public class RepositorioVoos implements IRepositorioVoo{
 
 	    return instanciaLocal;
 	  }
-	  
-	
+
+
 }

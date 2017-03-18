@@ -3,6 +3,7 @@ package negocio;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import exceptions.EmpresaNaoExisteException;
 import exceptions.JaExisteVooNesseHorarioException;
 import exceptions.PassagemNaoExisteException;
 import exceptions.ViagemOnibusJaExisteException;
@@ -39,7 +40,11 @@ public class Teste {
 //		fachada.cadastrarUsuario(user);
 //		System.out.printf("%s\n", fachada.procurarUsuario("123456").toString());
 //
-//		Voo voo = new Voo(10, 00, 13, 30, "São Paulo","Recife", 2016, 10, 26, 2016, 10, 26, 6244, "Gol");
+//		Voo voo = new Voo(10, 00, 13, 30, "São Paulo","Recife", 2016, 10, 26, 2016, 10, 26, "6244", "Gol");
+//		fachada.cadastrarVoo(voo);
+
+//		System.out.println(fachada.procurarVoo("6244").toString());
+
 //		fachada.cadastrarVoo(voo);
 //		System.out.printf("%s\n", fachada.procurarVoo(voo.getCodigoDoVoo()).toString());
 //
@@ -61,7 +66,12 @@ public class Teste {
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		}
-
+//  try {
+//	System.out.println(fachada.procurarEmpresa("11111"));
+//} catch (EmpresaNaoExisteException e) {
+//	// TODO Auto-generated catch block
+//	e.printStackTrace();
+}
 
 
 //		try {
@@ -108,4 +118,4 @@ public class Teste {
 
 
 }
-}
+

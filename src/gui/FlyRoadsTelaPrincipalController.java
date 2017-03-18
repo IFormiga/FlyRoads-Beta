@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import exceptions.EmpresaNaoExisteException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,6 +17,8 @@ import javafx.scene.control.ButtonBase;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import jdk.nashorn.internal.ir.TryNode;
+import negocio.Empresa;
 import negocio.FlyRoadsFachada;
 import negocio.IFlyRoads;
 import negocio.Usuario;
@@ -29,9 +32,17 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 	@FXML
 	TextField textFieldSenhaUsuario;
 	@FXML
+	TextField textFieldCnpjEmpresa;
+	@FXML
+	TextField textFieldSenhaEmpresa;
+	@FXML
 	Button buttonEntrarUsuario;
 	@FXML
 	Button buttonCadastrarNovoUsuario;
+	@FXML
+	Button buttonCadastrarNovaEmpresa;
+	@FXML
+	Button buttonEnviarEmpresa;
 
 	private IFlyRoads fachada = FlyRoadsFachada.getInstance();
 
@@ -115,6 +126,100 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 
 		}
 		});
+
+		buttonCadastrarNovaEmpresa.setOnAction(new EventHandler<ActionEvent>(){
+
+			@Override
+			public void handle(ActionEvent event) {
+				Stage stage;
+				Parent root;
+				try{
+					if(event.getSource()==buttonCadastrarNovaEmpresa){
+				        //get reference to the button's stage
+				        stage = (Stage) buttonCadastrarNovaEmpresa.getScene().getWindow();
+				        //load up OTHER FXML document
+				        root = FXMLLoader.load(getClass().getResource("/gui/CadastroEmpresaNova.fxml"));
+				    } else {
+						stage = (Stage) buttonCadastrarNovaEmpresa.getScene().getWindow();
+						root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
+					}
+					//create a new scene with root and set the stage
+					Scene scene = new Scene(root);
+				    stage.setScene(scene);
+				    main.changeStage(stage);
+
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+
+
+		}
+		});
+
+		buttonEnviarEmpresa.setOnAction(new EventHandler<ActionEvent>(){
+
+			@Override
+			public void handle(ActionEvent event) {
+				Stage stage = null;
+				Parent root = null;
+				try{
+					if(event.getSource()==buttonEnviarEmpresa){
+				        String cnpj = new String(textFieldCnpjEmpresa.getText());
+				        String senha = new String(textFieldSenhaEmpresa.getText());
+				        Empresa empresa;
+						try {
+
+							empresa = fachada.procurarEmpresa(cnpj);
+
+							if(empresa.getCnpj().equals(cnpj)){
+								if(empresa.getSenha().equals(senha)){
+									if(empresa.getRamo().equals("Ônibus")){
+										//get reference to the button's stage
+								        stage = (Stage) buttonEnviarEmpresa.getScene().getWindow();
+								        //load up OTHER FXML document
+								        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenuEmpresaOnibus.fxml"));
+									}else if(empresa.getRamo().equals("Avião")){
+
+										stage = (Stage) buttonEnviarEmpresa.getScene().getWindow();
+								        //load up OTHER FXML document
+								        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenuEmpresaAvião.fxml"));
+										}
+									else if(empresa.getRamo().equals("Master")){
+										stage = (Stage) buttonEnviarEmpresa.getScene().getWindow();
+								        //load up OTHER FXML document
+								        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenuEmpresaMaster.fxml"));
+
+									}
+
+								}
+							}else {
+								stage = (Stage) buttonEnviarEmpresa.getScene().getWindow();
+								root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
+							}
+
+						} catch (EmpresaNaoExisteException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+
+
+
+
+
+
+					//create a new scene with root and set the stage
+					Scene scene = new Scene(root);
+				    stage.setScene(scene);
+				    main.changeStage(stage);
+					}
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+
+
+		}
+		});
+
 
 
 	}

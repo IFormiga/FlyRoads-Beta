@@ -48,11 +48,11 @@ public interface IFlyRoads {
 	public abstract void alterarViagemOnibus(ViagemOnibus v1);
 
 	//PROCURAR
-	public abstract Empresa procurarEmpresa(String nomeDaEmpresa, String cnpj) throws EmpresaNaoExisteException;
+	public abstract Empresa procurarEmpresa(String cnpj) throws EmpresaNaoExisteException;
 
 	public abstract Passagem procurarPassagem(String cod) throws PassagemNaoExisteException;
 
-	public abstract Voo procurarVoo(int cod) throws VooNaoExisteException;
+	public abstract Voo procurarVoo(String string) throws VooNaoExisteException;
 
 	public abstract Usuario procurarUsuario(String cpf);
 

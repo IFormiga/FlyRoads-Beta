@@ -4,21 +4,21 @@ import java.util.Arrays;
 
 public class Voo extends Entidade{
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1733529284768383149L;
 	private String nomeEmpresa;
-	private int codigoDoVoo;
+	private String codigoDoVoo;
 	private LocalDateTime chegada;
 	private LocalDateTime saida;
 	private String origem;
 	private String destino;
 	private String assentos[] = {"1A","2A","3A","1B","2B","3B"};
 	private int numAssentos = assentos.length;
-	
+
 	public Voo(int horaSaida, int minSaida, int horaChegada, int minChegada, String origem,
-			String destino, int anoSaida, int mesSaida, int diaSaida, int anoChegada, 
-			int mesChegada, int diaChegada, int codigo, String nomeEmpresa){
+			String destino, int anoSaida, int mesSaida, int diaSaida, int anoChegada,
+			int mesChegada, int diaChegada, String codigo, String nomeEmpresa){
 		this.origem = origem;
 		this.destino = destino;
 		this.saida = LocalDateTime.of(anoSaida, mesSaida, diaSaida, horaSaida, minSaida);
@@ -26,12 +26,12 @@ public class Voo extends Entidade{
 		this.codigoDoVoo = codigo;
 		this.nomeEmpresa = nomeEmpresa;
 	}
-	
+
 	public int numAssentos(){
 		return this.numAssentos;
 	}
-	
-	public int getCodigoDoVoo() {
+
+	public String getCodigoDoVoo() {
 		return codigoDoVoo;
 	}
 
@@ -44,7 +44,7 @@ public class Voo extends Entidade{
 		this.nomeEmpresa = nome_empresa;
 	}
 
-	public void setCodigoDoVoo(int codigo_do_voo) {
+	public void setCodigoDoVoo(String codigo_do_voo) {
 		this.codigoDoVoo = codigo_do_voo;
 	}
 
@@ -67,7 +67,7 @@ public class Voo extends Entidade{
 		}
 		return r;
 	}
-	
+
 	public LocalDateTime getSaida() {
 		return saida;
 	}
@@ -150,7 +150,7 @@ public class Voo extends Entidade{
 				+ ", numAssentos = " + numAssentos + "]";
 	}
 
-		
-	
-	
+
+
+
 }

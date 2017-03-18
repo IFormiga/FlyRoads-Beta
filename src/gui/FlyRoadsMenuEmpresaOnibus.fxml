@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="534.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FlyRoadsMenuEmpresaOnibusController">
+   <children>
+      <SplitPane dividerPositions="0.11278195488721804" orientation="VERTICAL" prefHeight="401.0" prefWidth="442.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label layoutX="130.0" layoutY="4.0" text="Area Empresa" textFill="#0606f5">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="281.0" prefWidth="415.0">
+               <children>
+                  <Label layoutX="413.0" layoutY="329.0" text="Cadastro de Viagens" textFill="RED" />
+                  <Label layoutX="19.0" layoutY="28.0" text="Codigo:" textFill="#ee0606">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="17.0" layoutY="61.0" text="Origem:" textFill="#f20303">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="17.0" layoutY="91.0" text="Destino:" textFill="#f80606">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="17.0" layoutY="122.0" text="Hora Saida:" textFill="#f50101">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="22.0" layoutY="158.0" text="Minuto Saida:" textFill="#f80000">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="18.0" layoutY="197.0" text="Hora Chegada:" textFill="#ff0404">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="13.0" layoutY="237.0" text="Minuto Chegada" textFill="#ee0000">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textFieldCodigoViagemOnibus" layoutX="124.0" layoutY="26.0" />
+                  <TextField fx:id="textFieldOrigemViagemOnibus" layoutX="124.0" layoutY="59.0" />
+                  <TextField fx:id="textFieldDestinoViagemOnibus" layoutX="124.0" layoutY="89.0" />
+                  <TextField fx:id="textFieldHoraSaidaViagemOnibus" layoutX="124.0" layoutY="121.0" />
+                  <TextField fx:id="textFieldMinutoSaidaViagemOnibus" layoutX="124.0" layoutY="156.0" />
+                  <TextField fx:id="textFieldHoraChegadaViagemOnibus" layoutX="124.0" layoutY="195.0" />
+                  <TextField fx:id="textFieldMinutoChegadaViagemOnibus" layoutX="124.0" layoutY="234.0" />
+                  <Button fx:id="buttonSalvarViagemOnibus" layoutX="153.0" layoutY="281.0" mnemonicParsing="false" text="Salvar Viagem" />
+                  <Button fx:id="buttonLimparCamposViagemOnibus" layoutX="273.0" layoutY="281.0" mnemonicParsing="false" text="Limpar" />
+                  <Button fx:id="buttonVoltarTelaPrincipalViagemOnibus" layoutX="17.0" layoutY="281.0" mnemonicParsing="false" text="Voltar Tela Principal" />
+                  <Label layoutX="286.0" layoutY="30.0" text="Dia Saida:" textFill="#ee0404">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="284.0" layoutY="62.0" text="Mês Saida:" textFill="#eb0000">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="287.0" layoutY="91.0" text="Ano Saida:" textFill="#eb0303">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="285.0" layoutY="123.0" text="Dia Chegada:" textFill="#f50202">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="284.0" layoutY="158.0" text="Mês Chegada:" textFill="#f20404">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="283.0" layoutY="187.0" text="Ano Chegada:" textFill="#ee0707">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textFieldDiaSaidaViagemOnibus" layoutX="373.0" layoutY="26.0" />
+                  <TextField fx:id="textFieldMesSaidaViagemOnibus" layoutX="373.0" layoutY="59.0" />
+                  <TextField fx:id="textFieldAnoSaidaViagemOnibus" layoutX="373.0" layoutY="89.0" />
+                  <TextField fx:id="textFieldDiaChegadaViagemOnibus" layoutX="373.0" layoutY="121.0" />
+                  <TextField fx:id="textFieldMesChegadaViagemOnibus" layoutX="373.0" layoutY="156.0" />
+                  <TextField fx:id="textFieldAnoChegadaViagemOnibus" layoutX="373.0" layoutY="185.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</VBox>

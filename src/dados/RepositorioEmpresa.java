@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -14,9 +15,13 @@ import negocio.Empresa;
 
 
 
-public class RepositorioEmpresa implements IRepositorioEmpresa{
+public class RepositorioEmpresa implements IRepositorioEmpresa, Serializable{
 
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -7021153846651164467L;
 	private List<Empresa> listaEmpresa;
 	private static RepositorioEmpresa instancia;
 
@@ -53,7 +58,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 
 	}
 
-	public Empresa procurar(String nomeDaEmpresa, String cnpj){
+	public Empresa procurar(String cnpj){
 		String cnpj2;
 		Empresa r = null;
 		for(Empresa empresa2 : this.listaEmpresa){

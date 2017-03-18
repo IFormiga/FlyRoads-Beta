@@ -9,7 +9,7 @@ public class ViagemOnibus extends Entidade {
 	 *
 	 */
 	private static final long serialVersionUID = -533762086151831264L;
-	private String linha;
+
 	private String codigo;
 	private String assento[] = {"1A","2A","3A","2B","3B"};
 	private String origem;
@@ -19,11 +19,11 @@ public class ViagemOnibus extends Entidade {
 
 	private LocalDate dataOrigem;
 	private LocalDate dataChegada;
-	public ViagemOnibus(String linha, String codigo, String origem, String destino, int saidaHora, int saidaMinuto,
+	public ViagemOnibus( String codigo, String origem, String destino, int saidaHora, int saidaMinuto,
 			int chegadaHora,int chegadaMinuto,int anoSaida, int mesSaida, int diaSaida, int anoChegada,
 			int mesChegada, int diaChegada) {
 		super();
-		this.setLinha(linha);
+
 		this.setCodigo(codigo);
 		this.setOrigem(origem);
 		this.setDestino(destino);
@@ -33,13 +33,7 @@ public class ViagemOnibus extends Entidade {
 		this.dataChegada = LocalDate.of(anoChegada, mesChegada, diaChegada);
 
 	}
-	public String getLinha() {
-		return linha;
-	}
-	public void setLinha(String linha) {
-		if(linha != null)
-		 this.linha = linha;
-	}
+
 	public String getCodigo() {
 		return codigo;
 	}
@@ -95,7 +89,7 @@ public class ViagemOnibus extends Entidade {
 	}
 	@Override
 	public String toString() {
-		return "ViagemOnibus [linha=" + linha + ", codigo=" + codigo + ", assento=" + Arrays.toString(assento)
+		return "ViagemOnibus [ codigo=" + codigo + ", assento=" + Arrays.toString(assento)
 				+ ", origem=" + origem + ", destino=" + destino + ", saida=" + saida + ", chegada=" + chegada
 				+ ", data_origem=" + dataOrigem + ", data_chegada=" + dataChegada + "]";
 	}
@@ -136,11 +130,7 @@ public class ViagemOnibus extends Entidade {
 				return false;
 		} else if (!destino.equals(other.destino))
 			return false;
-		if (linha == null) {
-			if (other.linha != null)
-				return false;
-		} else if (!linha.equals(other.linha))
-			return false;
+
 		if (origem == null) {
 			if (other.origem != null)
 				return false;

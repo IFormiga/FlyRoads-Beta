@@ -1,17 +1,17 @@
 package exceptions;
 
 public class VooJaExisteException extends Exception {
-	
+
 	private static final long serialVersionUID = -7407535837196238594L;
-	private int codigo;
-	
-	public VooJaExisteException(int codigo){
-		super("O voo de codigo: "+codigo+" já existe");
-		this.codigo = codigo;
+	private String codigo;
+
+	public VooJaExisteException(String string){
+		super("O voo de codigo: "+string+" já existe");
+		this.codigo = string;
 	}
 
-	public int getCodigo(){
+	public String getCodigo(){
 		return this.codigo;
 	}
-	
+
 }

@@ -66,7 +66,7 @@ public class CadastroUsuarioNovoController implements Initializable {
 						String sexo = new String(textFieldCadastroNovoSexo.getText());
 						String senha = new String(textFieldCadastroNovaSenha.getText());
 						String dicasenha = new String(textFieldCadastroNovaDicaSenha.getText());
-
+//CADE AS EXCEPTION DE USUARIO
 						Usuario user = new Usuario(nome,cpf,idade,endereço,sexo,senha,dicasenha);
 						fachada.cadastrarUsuario(user);
 

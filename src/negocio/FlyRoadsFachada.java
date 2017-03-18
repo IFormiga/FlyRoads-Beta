@@ -60,8 +60,8 @@ public class FlyRoadsFachada implements IFlyRoads{
 
 	//REMOVER
 
-	public void removerEmpresa(String nomeDaEmpresaString, String cnpj) throws EmpresaNaoExisteException{
-		this.empresas.descadastrar(nomeDaEmpresaString,cnpj);
+	public void removerEmpresa(String cnpj) throws EmpresaNaoExisteException{
+		this.empresas.descadastrar(cnpj);
 	}
 	public void removerPassagem(Passagem passagem) throws PassagemNaoExisteException, PassagemJaExisteException{
 		this.passagens.removerPassagem(passagem);
@@ -94,13 +94,13 @@ public class FlyRoadsFachada implements IFlyRoads{
 	}
 
 	//PROCURAR
-	public Empresa procurarEmpresa(String nomeDaEmpresa, String cnpj) throws EmpresaNaoExisteException{
-		return this.empresas.procurar(nomeDaEmpresa, cnpj);
+	public Empresa procurarEmpresa(String cnpj) throws EmpresaNaoExisteException{
+		return this.empresas.procurar(cnpj);
 	}
 	public Passagem procurarPassagem(String cod) throws PassagemNaoExisteException{
 		return this.passagens.procurarPassagem(cod);
 	}
-	public Voo procurarVoo(int cod) throws VooNaoExisteException{
+	public Voo procurarVoo(String cod) throws VooNaoExisteException{
 		return this.voos.procurar(cod);
 	}
 	public Usuario procurarUsuario(String cpf){

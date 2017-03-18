@@ -3,16 +3,37 @@ package negocio;
 public class Empresa extends Entidade {
 
 	private static final long serialVersionUID = 6599039238113579552L;
-	
 
-	public String nomeEmpresa;
-	public String cnpj;
-	public String ramo;
 
-	public Empresa(String nomeEmpresa, String cnpj, String ramo){
+	private String nomeEmpresa;
+	private String cnpj;
+	private String ramo;
+	private String senha;
+	private String dicasenha;
+
+
+	public Empresa(String nomeEmpresa, String cnpj, String ramo,String senha, String dicasenha){
 		this.nomeEmpresa = nomeEmpresa;
 		this.cnpj = cnpj;
 		this.ramo = ramo;
+		this.senha = senha;
+		this.dicasenha = dicasenha;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getDicasenha() {
+		return dicasenha;
+	}
+
+	public void setDicasenha(String dicasenha) {
+		this.dicasenha = dicasenha;
 	}
 
 	public String getRamo() {
@@ -41,6 +62,8 @@ public class Empresa extends Entidade {
 		return "Empresa [nomeEmpresa=" + nomeEmpresa + ", cnpj=" + cnpj + ", ramo=" + ramo + "]";
 	}
 
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -55,6 +78,11 @@ public class Empresa extends Entidade {
 				return false;
 		} else if (!cnpj.equals(other.cnpj))
 			return false;
+		if (dicasenha == null) {
+			if (other.dicasenha != null)
+				return false;
+		} else if (!dicasenha.equals(other.dicasenha))
+			return false;
 		if (nomeEmpresa == null) {
 			if (other.nomeEmpresa != null)
 				return false;
@@ -65,8 +93,15 @@ public class Empresa extends Entidade {
 				return false;
 		} else if (!ramo.equals(other.ramo))
 			return false;
+		if (senha == null) {
+			if (other.senha != null)
+				return false;
+		} else if (!senha.equals(other.senha))
+			return false;
 		return true;
 	}
+
+
 
 
 }

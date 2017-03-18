@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FlyRoadsMenuEmpresaControllerMaster">
+   <children>
+      <SplitPane dividerPositions="0.48372781065088755" prefHeight="432.0" prefWidth="759.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="430.0" prefWidth="286.0">
+               <children>
+                  <TableView fx:id="tableViewOnibusMenuMaster" layoutX="1.0" layoutY="-2.0" prefHeight="432.0" prefWidth="163.0">
+                    <columns>
+                      <TableColumn fx:id="tableCollumViagensOnibus" prefWidth="162.0" text="Viagens Onibus" />
+                    </columns>
+                  </TableView>
+                  <TableView fx:id="tableViewAviaoMenuMaster" layoutX="162.0" layoutY="-2.0" prefHeight="432.0" prefWidth="163.0">
+                    <columns>
+                      <TableColumn fx:id="tableCollumViagensAvião" prefWidth="162.0" text="Viagens Avião" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label layoutX="113.0" layoutY="-1.0" text="Informações " textFill="#0611f2">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <GridPane layoutX="38.0" layoutY="85.0" prefHeight="154.0" prefWidth="254.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Codigo:">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Origem:" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Destino:" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="System Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelCodigoMenuMaster" text="Label" GridPane.columnIndex="1" />
+                        <Label fx:id="labelOrigemMenuMaster" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="labelDestinoMenuMaster" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+                  <Button fx:id="buttonInserirMenuMaster" layoutX="50.0" layoutY="333.0" mnemonicParsing="false" text="Inserir" />
+                  <Button fx:id="buttonAlterarMenuMaster" layoutX="122.0" layoutY="333.0" mnemonicParsing="false" text="Alterar" />
+                  <Button fx:id="buttonRemoverMenuMaster" layoutX="198.0" layoutY="333.0" mnemonicParsing="false" text="Remover" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</VBox>

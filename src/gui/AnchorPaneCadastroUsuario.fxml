@@ -12,14 +12,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="449.0" prefWidth="428.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="gui.AnchorPaneCadastroUsuarioController">
+<AnchorPane prefHeight="449.0" prefWidth="428.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AnchorPaneCadastroUsuarioController">
    <children>
       <SplitPane dividerPositions="0.5073891625615764" layoutX="-5.0" layoutY="-6.0" prefHeight="410.0" prefWidth="418.0" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-6.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="370.0" prefWidth="207.0">
                <children>
-                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="460.0" prefWidth="218.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="tableViewUsuario" layoutX="14.0" layoutY="14.0" prefHeight="460.0" prefWidth="218.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
                       <TableColumn fx:id="TableCollumNome" prefWidth="75.0" text="Nome" />
                       <TableColumn fx:id="TableCollumCPF" prefWidth="75.0" text="CPF" />
