@@ -5,15 +5,15 @@ public class Usuario extends Pessoa {
 	 *
 	 */
 	private static final long serialVersionUID = -8874169861904654757L;
-	private String nick;
+
 	private String senha;
 	private String dicaSenha;
 	private boolean usuarioMestre = false;
 	protected static String senhaMestre = "123456";
 
-	public Usuario(String nome, String cpf, String idade, String endereço, String sexo, String nick, String senha, String dicaSenha){
+	public Usuario(String nome, String cpf, String idade, String endereço, String sexo, String senha, String dicaSenha){
 		super(nome,cpf,idade,endereço,sexo);
-		this.setNick(nick);
+
 		this.senha = senha;
 		this.verificaHierarquia(senha);
 		this.setDica(dicaSenha);
@@ -28,25 +28,28 @@ public class Usuario extends Pessoa {
 	public boolean getConfirmacao() {
 		return this.usuarioMestre;
 	}
-	public String getNick(){
-		return this.nick;
-	}
+
 	public String getDica(){
 		return this.dicaSenha;
 	}
-	public void setNick(String nick){
-		this.nick = nick;
-	}
+
 	public void setDica(String dica_de_senha){
 		this.dicaSenha = dica_de_senha;
 	}
 
 	@Override
 	public String toString() {
-		return "Usuario [nick=" + nick + ", senha=" + senha + ", dicaSenha=" + dicaSenha + ", usuarioMestre="
+		return "Usuario [ senha=" + senha + ", dicaSenha=" + dicaSenha + ", usuarioMestre="
 				+ usuarioMestre + "]";
 	}
 
+
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -63,11 +66,7 @@ public class Usuario extends Pessoa {
 				return false;
 		} else if (!dicaSenha.equals(other.dicaSenha))
 			return false;
-		if (nick == null) {
-			if (other.nick != null)
-				return false;
-		} else if (!nick.equals(other.nick))
-			return false;
+
 		if (senha == null) {
 			if (other.senha != null)
 				return false;

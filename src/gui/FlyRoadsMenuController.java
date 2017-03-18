@@ -10,7 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 
-public class FlyRoadsController implements Initializable {
+public class FlyRoadsMenuController implements Initializable {
 
 	@FXML
 	private MenuItem MenuIntemCadastrosUsuario;
