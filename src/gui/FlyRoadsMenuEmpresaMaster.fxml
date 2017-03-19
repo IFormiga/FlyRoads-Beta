@@ -38,7 +38,7 @@
                         <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </Label>
-                  <GridPane layoutX="38.0" layoutY="85.0" prefHeight="154.0" prefWidth="254.0">
+                  <GridPane layoutX="38.0" layoutY="66.0" prefHeight="112.0" prefWidth="254.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -64,14 +64,13 @@
                               <Font name="System Bold Italic" size="12.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelCodigoMenuMaster" text="Label" GridPane.columnIndex="1" />
-                        <Label fx:id="labelOrigemMenuMaster" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label fx:id="labelDestinoMenuMaster" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="labelCodigoMenuMaster" GridPane.columnIndex="1" />
+                        <Label fx:id="labelOrigemMenuMaster" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="labelDestinoMenuMaster" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
-                  <Button fx:id="buttonInserirMenuMaster" layoutX="50.0" layoutY="333.0" mnemonicParsing="false" text="Inserir" />
-                  <Button fx:id="buttonAlterarMenuMaster" layoutX="122.0" layoutY="333.0" mnemonicParsing="false" text="Alterar" />
-                  <Button fx:id="buttonRemoverMenuMaster" layoutX="198.0" layoutY="333.0" mnemonicParsing="false" text="Remover" />
+                  <Button fx:id="buttonAlterarMenuMaster" layoutX="113.0" layoutY="385.0" mnemonicParsing="false" text="Alterar" />
+                  <Button fx:id="buttonRemoverMenuMaster" layoutX="189.0" layoutY="385.0" mnemonicParsing="false" text="Remover" />
                </children>
             </AnchorPane>
         </items>

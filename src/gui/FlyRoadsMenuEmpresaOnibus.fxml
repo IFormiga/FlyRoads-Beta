@@ -67,7 +67,7 @@
                   <TextField fx:id="textFieldHoraChegadaViagemOnibus" layoutX="124.0" layoutY="195.0" />
                   <TextField fx:id="textFieldMinutoChegadaViagemOnibus" layoutX="124.0" layoutY="234.0" />
                   <Button fx:id="buttonSalvarViagemOnibus" layoutX="153.0" layoutY="281.0" mnemonicParsing="false" text="Salvar Viagem" />
-                  <Button fx:id="buttonLimparCamposViagemOnibus" layoutX="273.0" layoutY="281.0" mnemonicParsing="false" text="Limpar" />
+                  <Button fx:id="buttonLimparCamposViagemOnibus" layoutX="261.0" layoutY="281.0" mnemonicParsing="false" text="Limpar" />
                   <Button fx:id="buttonVoltarTelaPrincipalViagemOnibus" layoutX="17.0" layoutY="281.0" mnemonicParsing="false" text="Voltar Tela Principal" />
                   <Label layoutX="286.0" layoutY="30.0" text="Dia Saida:" textFill="#ee0404">
                      <font>
