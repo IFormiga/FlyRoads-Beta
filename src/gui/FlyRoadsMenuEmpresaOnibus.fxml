@@ -14,7 +14,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Label layoutX="130.0" layoutY="4.0" text="Area Empresa" textFill="#0606f5">
+                  <Label layoutX="90.0" layoutY="4.0" text="Area Empresa de Ônibus" textFill="#0606f5">
                      <font>
                         <Font name="System Bold Italic" size="24.0" />
                      </font>
@@ -105,12 +105,12 @@
                   <TextField fx:id="textFieldDiaChegadaViagemOnibus" layoutX="373.0" layoutY="121.0" />
                   <TextField fx:id="textFieldMesChegadaViagemOnibus" layoutX="373.0" layoutY="156.0" />
                   <TextField fx:id="textFieldAnoChegadaViagemOnibus" layoutX="373.0" layoutY="185.0" />
-                  <Label layoutX="300.0" layoutY="217.0" text="Nome:" textFill="#f80505">
+                  <Label layoutX="281.0" layoutY="218.0" prefHeight="20.0" prefWidth="101.0" text="Nome Empresa:" textFill="#f80505">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textFieldNomeViagemOnibus" layoutX="373.0" layoutY="215.0" />
+                  <TextField fx:id="textFieldNomeViagemOnibus" layoutX="383.0" layoutY="216.0" />
                </children>
             </AnchorPane>
         </items>

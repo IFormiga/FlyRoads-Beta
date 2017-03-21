@@ -6,7 +6,10 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import exceptions.JaExisteVooNesseHorarioException;
+import exceptions.ViagemEmAndamentoException;
+import exceptions.ViagemOnibusNaoExisteException;
 import exceptions.VooJaExisteException;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -66,6 +69,10 @@ public class FlyRoadsMenuEmpresaControllerMaster implements Initializable {
 	private TextField textFieldHoraChegadaMenuMaster;
 	@FXML
 	private TextField textFieldMinutoChegadaMenuMaster;
+	@FXML
+	private TableColumn<Voo, String> tableCollumCodigoViagemAvião;
+	@FXML
+	private TableColumn<ViagemOnibus, String> tableCollumCodigoViagemOnibus;
 
 
 
@@ -73,6 +80,8 @@ public class FlyRoadsMenuEmpresaControllerMaster implements Initializable {
 	private Button buttonAlterarMenuMaster;
 	@FXML
 	private Button buttonRemoverMenuMaster;
+	@FXML
+	private Button buttonVoltarMenuMaster;
 
 	private List<ViagemOnibus> listaOnibus;
 	private ObservableList<ViagemOnibus> obslistaOnibus;
@@ -194,12 +203,152 @@ public class FlyRoadsMenuEmpresaControllerMaster implements Initializable {
 		}
 		});
 
+		buttonRemoverMenuMaster.setOnAction(new EventHandler<ActionEvent>(){
+
+			@Override
+			public void handle(ActionEvent event) {
+				Stage stage;
+				Parent root;
+				try{
+
+					ViagemOnibus viagem = tableViewOnibusMenuMaster.getSelectionModel().getSelectedItem();
+					Voo voo = tableViewAviaoMenuMaster.getSelectionModel().getSelectedItem();
+					if(viagem!= null && viagem instanceof ViagemOnibus){
+						String nome = textFieldNomeMenuMaster.getText();
+						String codigo = textFieldCodigoMenuMaster.getText();
+						String origem = textFieldOrigemMenuMaster.getText();
+						String destino = textFieldDestinoMenuMaster.getText();
+						String diasaida = textFieldDiaSaidaMenuMaster.getText();
+						int dsaida = Integer.parseInt(diasaida);
+						String messaida = textFieldMesSaidaMenuMaster.getText();
+						int msaida = Integer.parseInt(messaida);
+						String anosaida = textFieldAnoSaidaMenuMaster.getText();
+						int asaida = Integer.parseInt(anosaida);
+						String diachegada = textFieldDiaChegadaMenuMaster.getText();
+						int dchegada = Integer.parseInt(diachegada);
+						String meschegada = textFieldMesChegadaMenuMaster.getText();
+						int mchegada = Integer.parseInt(meschegada);
+						String anochegada = textFieldAnoChegadaMenuMaster.getText();
+						int achegada = Integer.parseInt(anochegada);
+
+						String horasaida = textFieldHoraSaidaMenuMaster.getText();
+						int hsaida = Integer.parseInt(horasaida);
+						String minutosaida = textFieldMinutoSaidaMenuMaster.getText();
+						int minsaida = Integer.parseInt(minutosaida);
+
+						String horachegada = textFieldHoraChegadaMenuMaster.getText();
+						int hchegada = Integer.parseInt(horachegada);
+
+						String minutochegada = textFieldMinutoChegadaMenuMaster.getText();
+						int minchegada = Integer.parseInt(minutochegada);
+
+						ViagemOnibus vremover = new ViagemOnibus(nome,codigo,origem,destino,hsaida,minsaida,hchegada,minchegada,asaida,msaida,dsaida,achegada,mchegada,dchegada);
+                         try {
+							fachada.removerViagemOnibus(vremover.getCodigo());
+						} catch (ViagemEmAndamentoException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (ViagemOnibusNaoExisteException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+
+					}
+					else if(voo!= null && voo instanceof Voo){
+						String nome = textFieldNomeMenuMaster.getText();
+						String codigo = textFieldCodigoMenuMaster.getText();
+						String origem = textFieldOrigemMenuMaster.getText();
+						String destino = textFieldDestinoMenuMaster.getText();
+						String diasaida = textFieldDiaSaidaMenuMaster.getText();
+						int dsaida = Integer.parseInt(diasaida);
+						String messaida = textFieldMesSaidaMenuMaster.getText();
+						int msaida = Integer.parseInt(messaida);
+						String anosaida = textFieldAnoSaidaMenuMaster.getText();
+						int asaida = Integer.parseInt(anosaida);
+						String diachegada = textFieldDiaChegadaMenuMaster.getText();
+						int dchegada = Integer.parseInt(diachegada);
+						String meschegada = textFieldMesChegadaMenuMaster.getText();
+						int mchegada = Integer.parseInt(meschegada);
+						String anochegada = textFieldAnoChegadaMenuMaster.getText();
+						int achegada = Integer.parseInt(anochegada);
+
+						String horasaida = textFieldHoraSaidaMenuMaster.getText();
+						int hsaida = Integer.parseInt(horasaida);
+						String minutosaida = textFieldMinutoSaidaMenuMaster.getText();
+						int minsaida = Integer.parseInt(minutosaida);
+
+						String horachegada = textFieldHoraChegadaMenuMaster.getText();
+						int hchegada = Integer.parseInt(horachegada);
+
+						String minutochegada = textFieldMinutoChegadaMenuMaster.getText();
+						int minchegada = Integer.parseInt(minutochegada);
+
+						Voo vremover = new Voo(hsaida,minsaida,hchegada,minchegada,origem,destino,asaida,msaida,dsaida,achegada,mchegada,dchegada,codigo,nome);
+
+							fachada.removerVoo(vremover);
+
+
+					}
+
+
+
+					if(event.getSource()==buttonRemoverMenuMaster){
+				        //get reference to the button's stage
+				        stage = (Stage) buttonRemoverMenuMaster.getScene().getWindow();
+				        //load up OTHER FXML document
+				        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenuEmpresaMaster.fxml"));
+				    } else {
+						stage = (Stage) buttonRemoverMenuMaster.getScene().getWindow();
+						root = FXMLLoader.load(getClass().getResource("/gui/FFlyRoadsMenuEmpresaMaster.fxml"));
+					}
+					//create a new scene with root and set the stage
+					Scene scene = new Scene(root);
+				    stage.setScene(scene);
+				    main.changeStage(stage);
+
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+
+
+		}
+		});
+
+		buttonVoltarMenuMaster.setOnAction(new EventHandler<ActionEvent>(){
+
+			@Override
+			public void handle(ActionEvent event) {
+				Stage stage;
+				Parent root;
+				try{
+					if(event.getSource()==buttonVoltarMenuMaster){
+				        //get reference to the button's stage
+				        stage = (Stage) buttonVoltarMenuMaster.getScene().getWindow();
+				        //load up OTHER FXML document
+				        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
+				    } else {
+						stage = (Stage) buttonVoltarMenuMaster.getScene().getWindow();
+						root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenuEmpresaMaster.fxml"));
+					}
+					//create a new scene with root and set the stage
+					Scene scene = new Scene(root);
+				    stage.setScene(scene);
+				    main.changeStage(stage);
+
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+
+
+		}
+		});
+
 
 	}
 
 	public void carregarTableViewViagemOnibus() {
-		tableCollumViagensOnibus.setCellValueFactory(new PropertyValueFactory<ViagemOnibus,String>("Viagens Ônibus"));
-
+		tableCollumViagensOnibus.setCellValueFactory(new PropertyValueFactory<>("Viagens Ônibus"));
+		tableCollumCodigoViagemOnibus.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCodigo()));
 
         listaOnibus = fachada.listaViagensOnibus();
 
@@ -211,8 +360,9 @@ public class FlyRoadsMenuEmpresaControllerMaster implements Initializable {
 
 	}
 	public void carregarTableViewViagemAviao() {
-		tableCollumViagensAvião.setCellValueFactory(new PropertyValueFactory<Voo,String>("Viagens Avião"));
 
+		tableCollumViagensAvião.setCellValueFactory(new PropertyValueFactory<Voo,String>("Viagens Avião"));
+		tableCollumCodigoViagemAvião.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCodigoDoVoo()));
 
         listavoo = fachada.listaVoos();
 

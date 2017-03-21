@@ -182,7 +182,7 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 
 										stage = (Stage) buttonEnviarEmpresa.getScene().getWindow();
 								        //load up OTHER FXML document
-								        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenuEmpresaAvião.fxml"));
+								        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenuEmpresaAviao.fxml"));
 										}
 									else if(empresa.getRamo().equals("Master")){
 										stage = (Stage) buttonEnviarEmpresa.getScene().getWindow();

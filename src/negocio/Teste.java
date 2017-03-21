@@ -35,6 +35,12 @@ public class Teste {
 		System.out.println(controlador.existe("40"));
 		*/
 		IFlyRoads fachada = FlyRoadsFachada.getInstance();
+//		try {
+//			System.out.println(fachada.procurarEmpresa("253718"));
+//		} catch (EmpresaNaoExisteException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 //		Usuario user = new Usuario("Igor", "123456", 20, "Boa Viagem", "Masculino", "IFormiga", "admin", "Senha: Admin");
 //		fachada.cadastrarUsuario(user);

@@ -21,13 +21,21 @@
                <children>
                   <TableView fx:id="tableViewOnibusMenuMaster" layoutX="1.0" layoutY="-2.0" prefHeight="432.0" prefWidth="163.0">
                     <columns>
-                      <TableColumn fx:id="tableCollumViagensOnibus" prefWidth="162.0" text="Viagens Onibus" />
+                      <TableColumn fx:id="tableCollumViagensOnibus" minWidth="0.0" prefWidth="97.0" text="Viagens Onibus" />
+                        <TableColumn fx:id="tableCollumCodigoViagemOnibus" prefWidth="64.0" text="Código" />
                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                   <TableView fx:id="tableViewAviaoMenuMaster" layoutX="162.0" layoutY="-2.0" prefHeight="432.0" prefWidth="163.0">
                     <columns>
-                      <TableColumn fx:id="tableCollumViagensAvião" prefWidth="162.0" text="Viagens Avião" />
+                      <TableColumn fx:id="tableCollumViagensAvião" prefWidth="91.0" text="Viagens Avião" />
+                        <TableColumn fx:id="tableCollumCodigoViagemAvião" prefWidth="70.0" text="Código" />
                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                </children>
             </AnchorPane>
@@ -148,6 +156,7 @@
                   </GridPane>
                   <Button fx:id="buttonAlterarMenuMaster" layoutX="113.0" layoutY="385.0" mnemonicParsing="false" text="Alterar" />
                   <Button fx:id="buttonRemoverMenuMaster" layoutX="189.0" layoutY="385.0" mnemonicParsing="false" text="Remover" />
+                  <Button fx:id="buttonVoltarMenuMaster" layoutX="280.0" layoutY="385.0" mnemonicParsing="false" text="Voltar" />
                </children>
             </AnchorPane>
         </items>
