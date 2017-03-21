@@ -2,12 +2,12 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadastroEmpresaNovaController">
    <children>
@@ -43,7 +43,6 @@
                   <TextField fx:id="textFieldRamoNovaEmpresa" layoutX="213.0" layoutY="96.0" />
                   <TextField fx:id="textFieldCnpjNovaEmpresa" layoutX="213.0" layoutY="140.0" />
                   <Button fx:id="buttonSalvarNovaEmpresa" layoutX="227.0" layoutY="305.0" mnemonicParsing="false" text="Salvar" />
-                  <TextField fx:id="textFieldSenhaNovaEmpresa" layoutX="213.0" layoutY="181.0" />
                   <Label layoutX="115.0" layoutY="184.0" text="Senha:" textFill="#f20202">
                      <font>
                         <Font name="System Italic" size="14.0" />
@@ -55,6 +54,7 @@
                      </font>
                   </Label>
                   <TextField fx:id="textFieldDicaSenhaNovaEmpresa" layoutX="213.0" layoutY="228.0" />
+                  <PasswordField fx:id="senhaFieldNovaEmpresa" layoutX="213.0" layoutY="182.0" />
                </children>
             </AnchorPane>
         </items>

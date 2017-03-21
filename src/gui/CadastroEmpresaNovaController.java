@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -30,7 +31,7 @@ public class CadastroEmpresaNovaController implements Initializable {
 	@FXML
 	TextField textFieldCnpjNovaEmpresa;
 	@FXML
-	TextField textFieldSenhaNovaEmpresa;
+	PasswordField senhaFieldNovaEmpresa;
 	@FXML
 	TextField textFieldDicaSenhaNovaEmpresa;
 	@FXML
@@ -58,7 +59,7 @@ public class CadastroEmpresaNovaController implements Initializable {
 						String nome = new String(textFieldNomeNovaEmpresa.getText());
 						String ramo = new String(textFieldRamoNovaEmpresa.getText());
 						String cnpj = new String(textFieldCnpjNovaEmpresa.getText());
-						String senha = new String(textFieldSenhaNovaEmpresa.getText());
+						String senha = new String(senhaFieldNovaEmpresa.getText());
 						String dicasenha = new String(textFieldDicaSenhaNovaEmpresa.getText());
 
 						Empresa empresa = new Empresa(nome,cnpj,ramo,senha,dicasenha);

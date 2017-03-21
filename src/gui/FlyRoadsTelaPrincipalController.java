@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBase;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -30,11 +31,11 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 	@FXML
 	TextField textFieldCpfUsuario;
 	@FXML
-	TextField textFieldSenhaUsuario;
+	PasswordField senhaFieldUsuario;
 	@FXML
 	TextField textFieldCnpjEmpresa;
 	@FXML
-	TextField textFieldSenhaEmpresa;
+	PasswordField senhaFieldEmpresa;
 	@FXML
 	Button buttonEntrarUsuario;
 	@FXML
@@ -95,7 +96,7 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 				Parent root = null;
 				try{
 					String cpf = new String(textFieldCpfUsuario.getText());
-					String senha = new String(textFieldSenhaUsuario.getText());
+					String senha = new String(senhaFieldEmpresa.getText());
 
 					for (Usuario usuario : fachada.listaUsuarios()) {
 						if(usuario.getCpf().equals(cpf)){
@@ -165,7 +166,7 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 				try{
 					if(event.getSource()==buttonEnviarEmpresa){
 				        String cnpj = new String(textFieldCnpjEmpresa.getText());
-				        String senha = new String(textFieldSenhaEmpresa.getText());
+				        String senha = new String(senhaFieldEmpresa.getText());
 				        Empresa empresa;
 						try {
 
