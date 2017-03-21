@@ -121,22 +121,18 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus,Seria
 		return resultado;
 	}
 	@Override
-	public boolean alterar(ViagemOnibus vParaAlterar) {
-		boolean r = false;
-		if(listaviagens.contains(vParaAlterar) == false)
-		{
-			for (ViagemOnibus v1 : listaviagens) {
-				if(v1.getCodigo() == vParaAlterar.getCodigo()){
-					listaviagens.remove(v1);
-					listaviagens.add(vParaAlterar);
-
-					r = true;
-				}
+	public boolean alterar(ViagemOnibus viagem) {
+		ArrayList<ViagemOnibus> listaRemovidos = new ArrayList<ViagemOnibus>();
+		boolean alt = false;
+			for(ViagemOnibus viagem2 : this.listaviagens){
+				if(viagem.getCodigo().equals(viagem2.getCodigo())){
+					listaRemovidos.add(viagem2);
+							alt = true;
 			}
-
-
 		}
-		return r;
+		this.listaviagens.removeAll(listaRemovidos);
+		this.listaviagens.add(viagem);
+				return alt;
 	}
 
 	private static RepositorioViagensOnibus lerDoArquivo(){

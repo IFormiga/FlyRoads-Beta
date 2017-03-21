@@ -68,13 +68,13 @@ public class ControladorVoo {
 		return this.repositorio.listar();
 	}
 
-	public void alterarVoo(Voo vooAlterado, Voo voo2){
-		if(vooAlterado != null && voo2 != null){
+	public void alterarVoo(Voo vooAlterado){
+		if(vooAlterado != null){
 			this.repositorio.alterar(vooAlterado);
 			this.repositorio.salvarArquivo();
 		}
 		else{
-			if(vooAlterado == null || voo2 == null){
+			if(vooAlterado == null){
 	    		  IllegalArgumentException x = new IllegalArgumentException("");
 	    		  throw x;
 			}

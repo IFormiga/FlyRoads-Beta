@@ -24,7 +24,8 @@ import negocio.ViagemOnibus;
 public class FlyRoadsMenuEmpresaOnibusController implements Initializable {
 
 
-
+    @FXML
+    TextField textFieldNomeViagemOnibus;
 	@FXML
 	TextField textFieldCodigoViagemOnibus;
 	@FXML
@@ -76,7 +77,8 @@ public class FlyRoadsMenuEmpresaOnibusController implements Initializable {
 				Parent root;
 				try{
 					if(event.getSource()==buttonSalvarViagemOnibus){
-				        String codigo = new String(textFieldCodigoViagemOnibus.getText());
+				        String nome = new String(textFieldNomeViagemOnibus.getText());
+						String codigo = new String(textFieldCodigoViagemOnibus.getText());
 				        String origem = new String(textFieldOrigemViagemOnibus.getText());
 				        String destino = new String(textFieldDestinoViagemOnibus.getText());
 				        String horasaida = new String(textFieldHoraSaidaViagemOnibus.getText());
@@ -92,7 +94,7 @@ public class FlyRoadsMenuEmpresaOnibusController implements Initializable {
 				        String messaida = new String(textFieldMesSaidaViagemOnibus.getText());
 				        int msaida = Integer.parseInt(messaida);
 				        String anosaida = new String(textFieldAnoSaidaViagemOnibus.getText());
-				        int asaida = Integer.parseInt(minutosaida);
+				        int asaida = Integer.parseInt(anosaida);
 				        String diachegada = new String(textFieldDiaChegadaViagemOnibus.getText());
 				        int dchegada = Integer.parseInt(diachegada);
 				        String meschegada = new String(textFieldMesChegadaViagemOnibus.getText());
@@ -104,7 +106,7 @@ public class FlyRoadsMenuEmpresaOnibusController implements Initializable {
 
 
 
-						ViagemOnibus viagem = new ViagemOnibus(codigo,origem,destino,hsaida,minsaida,hchegada,minchegada,asaida,msaida,dsaida,achegada,mchegada,dchegada);
+						ViagemOnibus viagem = new ViagemOnibus(nome,codigo,origem,destino,hsaida,minsaida,hchegada,minchegada,asaida,msaida,dsaida,achegada,mchegada,dchegada);
 						try {
 							fachada.CadastrarViagemOnibus(viagem);
 						} catch (ViagemOnibusJaExisteException e) {

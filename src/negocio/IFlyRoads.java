@@ -41,7 +41,7 @@ public interface IFlyRoads {
 
 	public abstract void alterarPassagem(Passagem passagemAlterada, Passagem passagem) throws PassagemNaoExisteException;
 
-	public abstract void alterarVoo(Voo vooAlterado, Voo voo);
+	public abstract void alterarVoo(Voo vooAlterado);
 
 	public abstract void alterarUsuario(Usuario aSerAlterado, Usuario alterado);
 

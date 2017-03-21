@@ -13,6 +13,10 @@ import java.util.List;
 
 import negocio.Voo;
 public class RepositorioVoos implements IRepositorioVoo, Serializable{
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -2604871904586577744L;
 	private List<Voo> listaVoos;
 	private static RepositorioVoos instance;
 
@@ -89,13 +93,18 @@ public class RepositorioVoos implements IRepositorioVoo, Serializable{
 		return verificacao;
 	}
 
-	public void alterar(Voo alterado){
-		for(Voo voo2 : listaVoos){
-			if(voo2.getCodigoDoVoo().equals(alterado.getCodigoDoVoo())){
-				listaVoos.remove(voo2);
-				listaVoos.add(alterado);
+	public boolean alterar(Voo voo) {
+		ArrayList<Voo> listaRemovidos = new ArrayList<Voo>();
+		boolean alt = false;
+			for(Voo voo2 : this.listaVoos){
+				if(voo.getCodigoDoVoo().equals(voo2.getCodigoDoVoo())){
+					listaRemovidos.add(voo2);
+							alt = true;
 			}
 		}
+		listaVoos.removeAll(listaRemovidos);
+		listaVoos.add(voo);
+			return alt;
 	}
 
 	public void salvarArquivo() {

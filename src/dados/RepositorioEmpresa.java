@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 import negocio.Empresa;
+import negocio.ViagemOnibus;
 
 
 
@@ -71,20 +72,18 @@ public class RepositorioEmpresa implements IRepositorioEmpresa, Serializable{
 		return r;
 	}
 
-	public boolean atualizar(Empresa empresaAlt)
-	{
-		boolean r = false;
-		if(listaEmpresa.contains(empresaAlt) == false)
-		{
-			for (Empresa empresa : listaEmpresa) {
-				if(empresa.getCnpj() == empresaAlt.getCnpj()){
-					listaEmpresa.remove(empresa);
-					listaEmpresa.add(empresaAlt);
-					r = true;
-				}
+	public boolean atualizar(Empresa empresa) {
+		ArrayList<Empresa> listaRemovidos = new ArrayList<Empresa>();
+		boolean alt = false;
+			for(Empresa empresa2 : this.listaEmpresa){
+				if(empresa.getCnpj().equals(empresa2.getCnpj())){
+					listaRemovidos.add(empresa2);
+							alt = true;
 			}
 		}
-		return r;
+		this.listaEmpresa.removeAll(listaRemovidos);
+			this.listaEmpresa.add(empresa);
+				return alt;
 	}
 
 	public boolean existe(String cnpj) {

@@ -1,5 +1,7 @@
 package negocio;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Arrays;
 
 public class Voo extends Entidade{
@@ -9,8 +11,11 @@ public class Voo extends Entidade{
 	private static final long serialVersionUID = 1733529284768383149L;
 	private String nomeEmpresa;
 	private String codigoDoVoo;
-	private LocalDateTime chegada;
-	private LocalDateTime saida;
+	private LocalTime saida;
+	private LocalTime chegada;
+
+	private LocalDate dataOrigem;
+	private LocalDate dataChegada;
 	private String origem;
 	private String destino;
 	private String assentos[] = {"1A","2A","3A","1B","2B","3B"};
@@ -21,8 +26,10 @@ public class Voo extends Entidade{
 			int mesChegada, int diaChegada, String codigo, String nomeEmpresa){
 		this.origem = origem;
 		this.destino = destino;
-		this.saida = LocalDateTime.of(anoSaida, mesSaida, diaSaida, horaSaida, minSaida);
-		this.chegada = LocalDateTime.of(anoChegada, mesChegada, diaChegada, horaChegada, minChegada);
+		this.saida = LocalTime.of(horaSaida, minSaida);
+		this.chegada = LocalTime.of(horaChegada, minChegada);
+		this.dataOrigem = LocalDate.of(anoSaida, mesSaida, diaSaida);
+		this.dataChegada = LocalDate.of(anoChegada, mesChegada, diaChegada);
 		this.codigoDoVoo = codigo;
 		this.nomeEmpresa = nomeEmpresa;
 	}
@@ -68,20 +75,38 @@ public class Voo extends Entidade{
 		return r;
 	}
 
-	public LocalDateTime getSaida() {
+
+
+	public LocalTime getSaida() {
 		return saida;
 	}
 
-	public void setSaida(LocalDateTime saida) {
+	public void setSaida(LocalTime saida) {
 		this.saida = saida;
 	}
 
-	public LocalDateTime getChegada() {
+	public LocalTime getChegada() {
 		return chegada;
 	}
 
-	public void setChegada(LocalDateTime chegada) {
+	public void setChegada(LocalTime chegada) {
 		this.chegada = chegada;
+	}
+
+	public LocalDate getDataOrigem() {
+		return dataOrigem;
+	}
+
+	public void setDataOrigem(LocalDate dataOrigem) {
+		this.dataOrigem = dataOrigem;
+	}
+
+	public LocalDate getDataChegada() {
+		return dataChegada;
+	}
+
+	public void setDataChegada(LocalDate dataChegada) {
+		this.dataChegada = dataChegada;
 	}
 
 	public String getOrigem() {

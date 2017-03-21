@@ -18,7 +18,7 @@ public interface IRepositorioVoo {
 
 	public abstract boolean existe(String codigoDoVoo);
 
-	public abstract void alterar(Voo alterado); //ok
+	public abstract boolean alterar(Voo alterado); //ok
 
 	public void salvarArquivo();
 

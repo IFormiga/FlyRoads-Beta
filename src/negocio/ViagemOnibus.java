@@ -10,6 +10,15 @@ public class ViagemOnibus extends Entidade {
 	 */
 	private static final long serialVersionUID = -533762086151831264L;
 
+	private String nome;
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	private String codigo;
 	private String assento[] = {"1A","2A","3A","2B","3B"};
 	private String origem;
@@ -19,11 +28,11 @@ public class ViagemOnibus extends Entidade {
 
 	private LocalDate dataOrigem;
 	private LocalDate dataChegada;
-	public ViagemOnibus( String codigo, String origem, String destino, int saidaHora, int saidaMinuto,
+	public ViagemOnibus(String nome, String codigo, String origem, String destino, int saidaHora, int saidaMinuto,
 			int chegadaHora,int chegadaMinuto,int anoSaida, int mesSaida, int diaSaida, int anoChegada,
 			int mesChegada, int diaChegada) {
 		super();
-
+        this.nome = nome;
 		this.setCodigo(codigo);
 		this.setOrigem(origem);
 		this.setDestino(destino);
@@ -89,12 +98,14 @@ public class ViagemOnibus extends Entidade {
 	}
 	@Override
 	public String toString() {
-		return "ViagemOnibus [ codigo=" + codigo + ", assento=" + Arrays.toString(assento)
+		return "ViagemOnibus [ nome" +nome+ " codigo=" + codigo + ", assento=" + Arrays.toString(assento)
 				+ ", origem=" + origem + ", destino=" + destino + ", saida=" + saida + ", chegada=" + chegada
 				+ ", data_origem=" + dataOrigem + ", data_chegada=" + dataChegada + "]";
 	}
 
-   @Override
+
+
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -130,7 +141,11 @@ public class ViagemOnibus extends Entidade {
 				return false;
 		} else if (!destino.equals(other.destino))
 			return false;
-
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
 		if (origem == null) {
 			if (other.origem != null)
 				return false;
@@ -143,6 +158,8 @@ public class ViagemOnibus extends Entidade {
 			return false;
 		return true;
 	}
+
+
 
 
 }

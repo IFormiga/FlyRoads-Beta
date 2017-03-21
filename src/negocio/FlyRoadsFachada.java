@@ -83,8 +83,8 @@ public class FlyRoadsFachada implements IFlyRoads{
 	public void alterarPassagem(Passagem passagemAlterada, Passagem passagem) throws PassagemNaoExisteException{
 		this.passagens.alterarPassagem(passagemAlterada, passagem);
 	}
-	public void alterarVoo(Voo vooAlterado, Voo voo){
-		this.voos.alterarVoo(vooAlterado, voo);
+	public void alterarVoo(Voo vooAlterado){
+		this.voos.alterarVoo(vooAlterado);
 	}
 	public void alterarUsuario(Usuario aSerAlterado, Usuario alterado){
 		this.usuarios.alterarUsuario(aSerAlterado, alterado);
