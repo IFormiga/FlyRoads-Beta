@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="334.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaExceptionController">
+   <center>
+      <Label fx:id="lblMenssagemTelaException" text="Formatação Inválida" textFill="#f80000" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font></Label>
+   </center>
+   <bottom>
+      <Button fx:id="buttonOkTelaException" mnemonicParsing="false" text="Ok" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

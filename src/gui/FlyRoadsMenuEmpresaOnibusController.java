@@ -13,16 +13,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import negocio.FlyRoadsFachada;
 import negocio.IFlyRoads;
 import negocio.ViagemOnibus;
 
 public class FlyRoadsMenuEmpresaOnibusController implements Initializable {
 
+	@FXML
+	Label lblMessagemException;
 
     @FXML
     TextField textFieldNomeViagemOnibus;
@@ -110,9 +115,10 @@ public class FlyRoadsMenuEmpresaOnibusController implements Initializable {
 						try {
 							fachada.CadastrarViagemOnibus(viagem);
 						} catch (ViagemOnibusJaExisteException e) {
-							// TODO: handle exception
-							e.printStackTrace();
+
+							lblMessagemException.setText(e.getMessage());
 						}
+
 
 
 
@@ -133,7 +139,22 @@ public class FlyRoadsMenuEmpresaOnibusController implements Initializable {
 
 			}catch(IOException e){
 				e.printStackTrace();
-			}
+			}catch(NumberFormatException e){
+				  FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/TelaException.fxml"));
+					Parent root1 = null;
+					try {
+						root1 = (Parent) fxmlLoader.load();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					stage = new Stage();
+					stage.initModality(Modality.APPLICATION_MODAL);
+					stage.initStyle(StageStyle.UNDECORATED);
+					stage.setTitle("FlyRoads");
+					stage.setScene(new Scene(root1));
+					stage.show();
+			  }
 
 
 		}
