@@ -30,6 +30,7 @@ import negocio.Voo;
 
 public class FlyRoadsMenuUsuarioMasterController implements Initializable {
 
+	@FXML
 	private TableView<Usuario> tableViewUsuarioMenuMaster;
 	@FXML
 	private TableColumn<Usuario, String> tableCollumCpf;
@@ -63,10 +64,11 @@ public class FlyRoadsMenuUsuarioMasterController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		carregarTableViewUsuarioMenuMaster();
+
 		this.main = Main.getInstance();
 		tableViewUsuarioMenuMaster.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> selecionarItemTableViewUsuario(newValue));
+		carregarTableViewUsuarioMenuMaster();
 
 		buttonAlterarMenuUsuarioMaster.setOnAction(new EventHandler<ActionEvent>(){
 
@@ -180,15 +182,12 @@ public class FlyRoadsMenuUsuarioMasterController implements Initializable {
 	}
 
 	public void carregarTableViewUsuarioMenuMaster() {
-		tableCollumUsuarios.setCellValueFactory(new PropertyValueFactory<>("Usuários"));
-		tableCollumCpf.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCpf()));
-
-        listaUsuarios = fachada.listaUsuarios();
-
-
-        obslistaUsuarios = FXCollections.observableArrayList();
+		listaUsuarios = fachada.listaUsuarios();
+        obslistaUsuarios = FXCollections.observableArrayList(this.listaUsuarios);
+        //obslistaUsuarios.addAll(this.listaUsuarios);
         tableViewUsuarioMenuMaster.setItems(obslistaUsuarios);
-
+        tableCollumUsuarios.setCellValueFactory(new PropertyValueFactory<>("Usuários"));
+		tableCollumCpf.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCpf()));
 	}
 	 public void selecionarItemTableViewUsuario(Usuario user){
 	        if (user != null) {

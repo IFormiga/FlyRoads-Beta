@@ -354,7 +354,7 @@ public class FlyRoadsMenuEmpresaControllerMaster implements Initializable {
 
 
         obslistaOnibus = FXCollections.observableArrayList(listaOnibus);
-        tableViewOnibusMenuMaster.setItems(obslistaOnibus);
+               tableViewOnibusMenuMaster.setItems(obslistaOnibus);
 
 
 

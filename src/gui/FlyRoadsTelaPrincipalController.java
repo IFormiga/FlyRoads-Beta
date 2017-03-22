@@ -27,7 +27,6 @@ import javafx.scene.layout.VBox;
 
 public class FlyRoadsTelaPrincipalController implements Initializable {
 
-
 	@FXML
 	TextField textFieldCpfUsuario;
 	@FXML
@@ -47,163 +46,155 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 
 	private IFlyRoads fachada = FlyRoadsFachada.getInstance();
 
-
 	private Parent root;
 
 	@FXML
 	private AnchorPane anchorP;
 	private Main main;
 
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stube
 		this.main = Main.getInstance();
-		buttonCadastrarNovoUsuario.setOnAction(new EventHandler<ActionEvent>(){
+		buttonCadastrarNovoUsuario.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
 				Stage stage;
 				Parent root;
-				try{
-					if(event.getSource()==buttonCadastrarNovoUsuario){
-				        //get reference to the button's stage
-				        stage = (Stage) buttonCadastrarNovoUsuario.getScene().getWindow();
-				        //load up OTHER FXML document
-				        root = FXMLLoader.load(getClass().getResource("/gui/CadastroUsuarioNovo.fxml"));
-				    } else {
+				try {
+					if (event.getSource() == buttonCadastrarNovoUsuario) {
+						// get reference to the button's stage
+						stage = (Stage) buttonCadastrarNovoUsuario.getScene().getWindow();
+						// load up OTHER FXML document
+						root = FXMLLoader.load(getClass().getResource("/gui/CadastroUsuarioNovo.fxml"));
+					} else {
 						stage = (Stage) buttonCadastrarNovoUsuario.getScene().getWindow();
 						root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
 					}
-					//create a new scene with root and set the stage
+					// create a new scene with root and set the stage
 					Scene scene = new Scene(root);
-				    stage.setScene(scene);
-				    main.changeStage(stage);
+					stage.setScene(scene);
+					main.changeStage(stage);
 
-			}catch(IOException e){
-				e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
 			}
-
-
-		}
 		});
 
-		buttonEntrarUsuario.setOnAction(new EventHandler<ActionEvent>(){
+		buttonEntrarUsuario.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
 				Stage stage = null;
 				Parent root = null;
-				try{
+				try {
 					String cpf = new String(textFieldCpfUsuario.getText());
 					String senha = new String(senhaFieldUsuario.getText());
 
 					Usuario user = fachada.procurarUsuario(cpf);
 					user.verificaHierarquia(senha);
 
-						if(user.getCpf().equals(cpf)){
-							if(user.getSenha().equals(senha)){
-								if(user.getConfirmacao()){
-									if(event.getSource()==buttonEntrarUsuario){
-								        //get reference to the button's stage
-								        stage = (Stage) buttonEntrarUsuario.getScene().getWindow();
-								        //load up OTHER FXML document
-								        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenuUsuarioMaster.fxml"));
-								}
+					if (user.getCpf().equals(cpf) && user.getSenha().equals(senha)) {
+						if (user.getConfirmacao()) {
+							if (event.getSource() == buttonEntrarUsuario) {
+								// get reference to the button's stage
+								stage = (Stage) buttonEntrarUsuario.getScene().getWindow();
+								// load up OTHER FXML document
+								root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenuUsuarioMaster.fxml"));
 							}
-								else{
-									if(event.getSource()==buttonEntrarUsuario){
-								        //get reference to the button's stage
-								        stage = (Stage) buttonEntrarUsuario.getScene().getWindow();
-								        //load up OTHER FXML document
-								        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
-								}
-								}
+						} else {
+							if (event.getSource() == buttonEntrarUsuario) {
+								// get reference to the button's stage
+								stage = (Stage) buttonEntrarUsuario.getScene().getWindow();
+								// load up OTHER FXML document
+								root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
+							}
 						}
-
-				}else{
-					stage = (Stage) buttonEntrarUsuario.getScene().getWindow();
-			        //load up OTHER FXML document
-			        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
+					} else {
+						stage = (Stage) buttonEntrarUsuario.getScene().getWindow();
+						// load up OTHER FXML document
+						root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
+					}
+					Scene scene = new Scene(root);
+					stage.setScene(scene);
+					main.changeStage(stage);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 
 			}
-			catch(IOException e){
-				e.printStackTrace();
-			}
-				Scene scene = new Scene(root);
-			    stage.setScene(scene);
-			    main.changeStage(stage);
-
-		}
 		});
 
-		buttonCadastrarNovaEmpresa.setOnAction(new EventHandler<ActionEvent>(){
+		buttonCadastrarNovaEmpresa.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
 				Stage stage;
 				Parent root;
-				try{
-					if(event.getSource()==buttonCadastrarNovaEmpresa){
-				        //get reference to the button's stage
-				        stage = (Stage) buttonCadastrarNovaEmpresa.getScene().getWindow();
-				        //load up OTHER FXML document
-				        root = FXMLLoader.load(getClass().getResource("/gui/CadastroEmpresaNova.fxml"));
-				    } else {
+				try {
+					if (event.getSource() == buttonCadastrarNovaEmpresa) {
+						// get reference to the button's stage
+						stage = (Stage) buttonCadastrarNovaEmpresa.getScene().getWindow();
+						// load up OTHER FXML document
+						root = FXMLLoader.load(getClass().getResource("/gui/CadastroEmpresaNova.fxml"));
+					} else {
 						stage = (Stage) buttonCadastrarNovaEmpresa.getScene().getWindow();
 						root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
 					}
-					//create a new scene with root and set the stage
+					// create a new scene with root and set the stage
 					Scene scene = new Scene(root);
-				    stage.setScene(scene);
-				    main.changeStage(stage);
+					stage.setScene(scene);
+					main.changeStage(stage);
 
-			}catch(IOException e){
-				e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
 			}
-
-
-		}
 		});
 
-		buttonEnviarEmpresa.setOnAction(new EventHandler<ActionEvent>(){
+		buttonEnviarEmpresa.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent event) {
 				Stage stage = null;
 				Parent root = null;
-				try{
-					if(event.getSource()==buttonEnviarEmpresa){
-				        String cnpj = new String(textFieldCnpjEmpresa.getText());
-				        String senha = new String(senhaFieldEmpresa.getText());
-				        Empresa empresa;
+				try {
+					if (event.getSource() == buttonEnviarEmpresa) {
+						String cnpj = new String(textFieldCnpjEmpresa.getText());
+						String senha = new String(senhaFieldEmpresa.getText());
+						Empresa empresa;
 						try {
 
 							empresa = fachada.procurarEmpresa(cnpj);
 
-							if(empresa.getCnpj().equals(cnpj)){
-								if(empresa.getSenha().equals(senha)){
-									if(empresa.getRamo().equals("Ônibus")){
-										//get reference to the button's stage
-								        stage = (Stage) buttonEnviarEmpresa.getScene().getWindow();
-								        //load up OTHER FXML document
-								        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenuEmpresaOnibus.fxml"));
-									}else if(empresa.getRamo().equals("Avião")){
+							if (empresa.getCnpj().equals(cnpj)) {
+								if (empresa.getSenha().equals(senha)) {
+									if (empresa.getRamo().equals("Ônibus")) {
+										// get reference to the button's stage
+										stage = (Stage) buttonEnviarEmpresa.getScene().getWindow();
+										// load up OTHER FXML document
+										root = FXMLLoader
+												.load(getClass().getResource("/gui/FlyRoadsMenuEmpresaOnibus.fxml"));
+									} else if (empresa.getRamo().equals("Avião")) {
 
 										stage = (Stage) buttonEnviarEmpresa.getScene().getWindow();
-								        //load up OTHER FXML document
-								        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenuEmpresaAviao.fxml"));
-										}
-									else if(empresa.getRamo().equals("Master")){
+										// load up OTHER FXML document
+										root = FXMLLoader
+												.load(getClass().getResource("/gui/FlyRoadsMenuEmpresaAviao.fxml"));
+									} else if (empresa.getRamo().equals("Master")) {
 										stage = (Stage) buttonEnviarEmpresa.getScene().getWindow();
-								        //load up OTHER FXML document
-								        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenuEmpresaMaster.fxml"));
+										// load up OTHER FXML document
+										root = FXMLLoader
+												.load(getClass().getResource("/gui/FlyRoadsMenuEmpresaMaster.fxml"));
 
 									}
 
 								}
-							}else {
+							} else {
 								stage = (Stage) buttonEnviarEmpresa.getScene().getWindow();
 								root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
 							}
@@ -213,36 +204,22 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 							e.printStackTrace();
 						}
 
-
-
-
-
-
-					//create a new scene with root and set the stage
-					Scene scene = new Scene(root);
-				    stage.setScene(scene);
-				    main.changeStage(stage);
+						// create a new scene with root and set the stage
+						Scene scene = new Scene(root);
+						stage.setScene(scene);
+						main.changeStage(stage);
 					}
-			}catch(IOException e){
-				e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
 			}
-
-
-		}
 		});
 
-
-
-
 	}
 
-
-
-	public void setApp(Main main){
+	public void setApp(Main main) {
 		this.main = main;
 	}
-
-
-
 
 }

@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FlyRoadsMenuUsuarioMasterController">
    <children>
       <SplitPane dividerPositions="0.09774436090225563" orientation="VERTICAL" prefHeight="401.0" prefWidth="600.0">
@@ -26,7 +25,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <TableView fx:id="tableViewUsuarioMenuMaster" prefHeight="357.0" prefWidth="200.0">
+                  <TableView fx:id="tableViewUsuarioMenuMaster" layoutY="1.0" prefHeight="357.0" prefWidth="200.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="398.0" AnchorPane.topAnchor="1.0">
                     <columns>
                       <TableColumn fx:id="tableCollumCpf" prefWidth="65.0" text="Cpf" />
                       <TableColumn fx:id="tableCollumUsuarios" prefWidth="130.0" text="Usuarios" />
