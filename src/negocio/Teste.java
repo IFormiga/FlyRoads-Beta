@@ -1,5 +1,6 @@
 package negocio;
 
+import exceptions.EmpresaNaoExisteException;
 import exceptions.JaExisteVooNesseHorarioException;
 import exceptions.PassagemNaoExisteException;
 import exceptions.ViagemOnibusJaExisteException;
@@ -32,12 +33,14 @@ public class Teste {
 		*/
 		IFlyRoads fachada = FlyRoadsFachada.getInstance();
 		System.out.println(fachada.procurarUsuario("00000"));
+
 //		try {
 //			System.out.println(fachada.procurarEmpresa("253718"));
 //		} catch (EmpresaNaoExisteException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
+
 
 //		Usuario user = new Usuario("Igor", "123456", 20, "Boa Viagem", "Masculino", "IFormiga", "admin", "Senha: Admin");
 //		fachada.cadastrarUsuario(user);
