@@ -89,41 +89,51 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 		});
 
 		buttonEntrarUsuario.setOnAction(new EventHandler<ActionEvent>(){
-//SE O USUARIO DIGITAR ALGO ERRADO, CONTINUA NA TELA PRINCIPAL E MANDA ELE DIGITAR O CPF/E OU SENHA CORRETO
+
 			@Override
 			public void handle(ActionEvent event) {
 				Stage stage = null;
 				Parent root = null;
 				try{
 					String cpf = new String(textFieldCpfUsuario.getText());
-					String senha = new String(senhaFieldEmpresa.getText());
+					String senha = new String(senhaFieldUsuario.getText());
 
-					for (Usuario usuario : fachada.listaUsuarios()) {
-						if(usuario.getCpf().equals(cpf)){
-							if(usuario.getSenha().equals(senha)){
-								if(event.getSource()==buttonEntrarUsuario){
-							        //get reference to the button's stage
-							        stage = (Stage) buttonEntrarUsuario.getScene().getWindow();
-							        //load up OTHER FXML document
-							        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenu.fxml"));
-							    }
+					Usuario user = fachada.procurarUsuario(cpf);
+					user.verificaHierarquia(senha);
+
+						if(user.getCpf().equals(cpf)){
+							if(user.getSenha().equals(senha)){
+								if(user.getConfirmacao()){
+									if(event.getSource()==buttonEntrarUsuario){
+								        //get reference to the button's stage
+								        stage = (Stage) buttonEntrarUsuario.getScene().getWindow();
+								        //load up OTHER FXML document
+								        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenuUsuarioMaster.fxml"));
+								}
 							}
-						}else {
-							stage = (Stage) buttonEntrarUsuario.getScene().getWindow();
-							root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
+								else{
+									if(event.getSource()==buttonEntrarUsuario){
+								        //get reference to the button's stage
+								        stage = (Stage) buttonEntrarUsuario.getScene().getWindow();
+								        //load up OTHER FXML document
+								        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
+								}
+								}
 						}
-					}
 
+				}else{
+					stage = (Stage) buttonEntrarUsuario.getScene().getWindow();
+			        //load up OTHER FXML document
+			        root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
+				}
 
-					//create a new scene with root and set the stage
-					Scene scene = new Scene(root);
-				    stage.setScene(scene);
-				    main.changeStage(stage);
-
-			}catch(IOException e){
+			}
+			catch(IOException e){
 				e.printStackTrace();
 			}
-
+				Scene scene = new Scene(root);
+			    stage.setScene(scene);
+			    main.changeStage(stage);
 
 		}
 		});
@@ -220,6 +230,7 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 
 		}
 		});
+
 
 
 

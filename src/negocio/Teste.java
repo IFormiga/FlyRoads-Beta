@@ -35,6 +35,7 @@ public class Teste {
 		System.out.println(controlador.existe("40"));
 		*/
 		IFlyRoads fachada = FlyRoadsFachada.getInstance();
+		System.out.println(fachada.procurarUsuario("00000"));
 //		try {
 //			System.out.println(fachada.procurarEmpresa("253718"));
 //		} catch (EmpresaNaoExisteException e) {

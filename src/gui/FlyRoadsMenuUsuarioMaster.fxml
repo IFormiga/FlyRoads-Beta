@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FlyRoadsMenuUsuarioMasterController">
+   <children>
+      <SplitPane dividerPositions="0.09774436090225563" orientation="VERTICAL" prefHeight="401.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label layoutX="151.0" layoutY="5.0" text="Área Usuário Mestre" textFill="#0511fc">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TableView fx:id="tableViewUsuarioMenuMaster" prefHeight="357.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn fx:id="tableCollumCpf" prefWidth="65.0" text="Cpf" />
+                      <TableColumn fx:id="tableCollumUsuarios" prefWidth="130.0" text="Usuarios" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="250.0" layoutY="48.0" text="Nome:" textFill="#f50303">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="254.0" layoutY="87.0" text="Cpf:" textFill="#eb0404">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="237.0" layoutY="130.0" text="Endereço:" textFill="#f80000">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="248.0" layoutY="169.0" text="Idade:" textFill="#ff0202">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="255.0" layoutY="212.0" text="Sexo:" textFill="#ee0000">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textFieldNomeMenuUsuarioMaster" layoutX="311.0" layoutY="46.0" />
+                  <TextField fx:id="textFieldCpfMenuUsuarioMaster" layoutX="311.0" layoutY="84.0" prefHeight="25.0" prefWidth="149.0" />
+                  <TextField fx:id="textFieldEndereçoMenuUsuarioMaster" layoutX="311.0" layoutY="127.0" />
+                  <TextField fx:id="textFieldIdadeMenuUsuarioMaster" layoutX="311.0" layoutY="167.0" />
+                  <TextField fx:id="textFieldSexoMenuUsuarioMaster" layoutX="311.0" layoutY="210.0" />
+                  <Button fx:id="buttonAlterarMenuUsuarioMaster" layoutX="264.0" layoutY="292.0" mnemonicParsing="false" text="Alterar" />
+                  <Button fx:id="buttonRemoverMenuUsuarioMaster" layoutX="351.0" layoutY="292.0" mnemonicParsing="false" text="Remover" />
+                  <Button fx:id="buttonVoltarMenuUsuarioMaster" layoutX="454.0" layoutY="292.0" mnemonicParsing="false" text="Voltar" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</VBox>

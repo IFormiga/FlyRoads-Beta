@@ -86,8 +86,8 @@ public class FlyRoadsFachada implements IFlyRoads{
 	public void alterarVoo(Voo vooAlterado){
 		this.voos.alterarVoo(vooAlterado);
 	}
-	public void alterarUsuario(Usuario aSerAlterado, Usuario alterado){
-		this.usuarios.alterarUsuario(aSerAlterado, alterado);
+	public void alterarUsuario(Usuario aSerAlterado){
+		this.usuarios.alterarUsuario(aSerAlterado);
 	}
 	public void alterarViagemOnibus(ViagemOnibus v1){
 		this.viagensOnibus.alterar(v1);

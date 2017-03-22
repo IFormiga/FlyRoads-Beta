@@ -111,7 +111,7 @@
                      </font>
                   </Label>
                   <TextField fx:id="textFieldNomeViagemOnibus" layoutX="383.0" layoutY="216.0" />
-                  <Label fx:id="lblMessagemException" layoutX="383.0" layoutY="259.0" />
+                  <Label fx:id="lblMessagemException" layoutX="360.0" layoutY="259.0" prefHeight="17.0" prefWidth="109.0" />
                </children>
             </AnchorPane>
         </items>

@@ -18,7 +18,7 @@ public class Usuario extends Pessoa {
 		this.verificaHierarquia(senha);
 		this.setDica(dicaSenha);
 	}
-	private void verificaHierarquia(String senha){
+	public void verificaHierarquia(String senha){
 		boolean r = false;
 		if(senha.equals(Usuario.senhaMestre)){
 		r = true;

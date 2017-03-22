@@ -43,7 +43,7 @@ public interface IFlyRoads {
 
 	public abstract void alterarVoo(Voo vooAlterado);
 
-	public abstract void alterarUsuario(Usuario aSerAlterado, Usuario alterado);
+	public abstract void alterarUsuario(Usuario aSerAlterado);
 
 	public abstract void alterarViagemOnibus(ViagemOnibus v1);
 
