@@ -52,7 +52,7 @@ public class ControladorEmpresa {
 		return this.repositorio.listar();
 	}
 
-	public void descadastrar(String cnpj) throws EmpresaNaoExisteException{
+	public void removerEmpresa(String cnpj) throws EmpresaNaoExisteException{
 
 
 		if(cnpj == null){

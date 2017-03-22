@@ -61,7 +61,7 @@ public class FlyRoadsFachada implements IFlyRoads{
 	//REMOVER
 
 	public void removerEmpresa(String cnpj) throws EmpresaNaoExisteException{
-		this.empresas.descadastrar(cnpj);
+		this.empresas.removerEmpresa(cnpj);
 	}
 	public void removerPassagem(Passagem passagem) throws PassagemNaoExisteException, PassagemJaExisteException{
 		this.passagens.removerPassagem(passagem);
@@ -80,8 +80,8 @@ public class FlyRoadsFachada implements IFlyRoads{
 	public void alterarEmpresa(Empresa e1){
 		this.empresas.alterar(e1);
 	}
-	public void alterarPassagem(Passagem passagemAlterada, Passagem passagem) throws PassagemNaoExisteException{
-		this.passagens.alterarPassagem(passagemAlterada, passagem);
+	public void alterarPassagem(Passagem passagemAlterada) throws PassagemNaoExisteException{
+		this.passagens.alterarPassagem(passagemAlterada);
 	}
 	public void alterarVoo(Voo vooAlterado){
 		this.voos.alterarVoo(vooAlterado);

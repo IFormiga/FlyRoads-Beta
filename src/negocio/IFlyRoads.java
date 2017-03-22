@@ -26,7 +26,7 @@ public interface IFlyRoads {
 
 	//REMOVER
 
-	public abstract void removerEmpresa(String nomeDaEmpresaString, String cnpj)throws EmpresaNaoExisteException;
+	public abstract void removerEmpresa(String cnpj)throws EmpresaNaoExisteException;
 
 	public abstract void removerPassagem(Passagem passagem) throws PassagemNaoExisteException, PassagemJaExisteException;
 
@@ -39,7 +39,7 @@ public interface IFlyRoads {
 	//ALTERAR
 	public abstract void alterarEmpresa(Empresa e1);
 
-	public abstract void alterarPassagem(Passagem passagemAlterada, Passagem passagem) throws PassagemNaoExisteException;
+	public abstract void alterarPassagem(Passagem passagemAlterada) throws PassagemNaoExisteException;
 
 	public abstract void alterarVoo(Voo vooAlterado);
 
