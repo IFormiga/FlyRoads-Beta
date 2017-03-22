@@ -43,14 +43,18 @@ public class RepositorioUsuarios implements IRepositorioUsuario, Serializable{
 		}
 		return true;
 	}
-	public boolean alterar(Usuario alterado){
+	public boolean alterar(Usuario usuario){
 		boolean r = false;
+		ArrayList<Usuario> listaRemovidos = new ArrayList<Usuario>();
 		for(Usuario user1 : listaUsuarios){
-			if(user1.getCpf().equals(alterado.getCpf())){
-				listaUsuarios.remove(alterado);
-				listaUsuarios.add(alterado);
+			if(user1.getCpf().equals(usuario.getCpf())){
+				listaRemovidos.add(user1);
 				r = true;
 			}
+		}
+		if(r == true){
+			this.listaUsuarios.removeAll(listaRemovidos);
+			this.listaUsuarios.add(usuario);
 		}
 		return r;
 	}

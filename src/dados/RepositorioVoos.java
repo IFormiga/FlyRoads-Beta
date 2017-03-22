@@ -100,11 +100,13 @@ public class RepositorioVoos implements IRepositorioVoo, Serializable{
 				if(voo.getCodigoDoVoo().equals(voo2.getCodigoDoVoo())){
 					listaRemovidos.add(voo2);
 							alt = true;
+				}
 			}
-		}
+		if(alt==true){
 		listaVoos.removeAll(listaRemovidos);
 		listaVoos.add(voo);
-			return alt;
+		}
+		return alt;
 	}
 
 	public void salvarArquivo() {

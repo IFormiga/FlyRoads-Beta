@@ -1,9 +1,5 @@
 package negocio;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-
-import exceptions.EmpresaNaoExisteException;
 import exceptions.JaExisteVooNesseHorarioException;
 import exceptions.PassagemNaoExisteException;
 import exceptions.ViagemOnibusJaExisteException;

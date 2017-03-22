@@ -9,6 +9,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import negocio.Passagem;
 
 public class RepositorioPassagens implements IRepositorioPassagem {
@@ -36,14 +37,18 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 		}
 		return true;
 	}
-	public boolean alterar(Passagem alterado){
+	public boolean alterar(Passagem passagem){
 		boolean r = false;
-		for(Passagem passagem2 : listaPassagens){
-			if(passagem2.getCodigo() == alterado.getCodigo()){
-				listaPassagens.remove(passagem2);
-				listaPassagens.add(alterado);
+		ArrayList<Passagem> listaRemovidos = new ArrayList<Passagem>();
+		for(Passagem passagem2 : this.listaPassagens){
+			if(passagem2.getCodigo().equals(passagem.getCodigo())){
+				listaRemovidos.add(passagem2);
 				r = true;
 			}
+		}
+		if(r == true){
+			this.listaPassagens.removeAll(listaRemovidos);
+			this.listaPassagens.add(passagem);
 		}
 		return r;
 	}
