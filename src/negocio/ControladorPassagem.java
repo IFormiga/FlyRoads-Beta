@@ -15,6 +15,7 @@ public class ControladorPassagem {
 	public void venderPassagem(Passagem p) throws PassagemJaExisteException {
 		if (p != null && (this.repositorio.existe(p.getCodigo())) == false){
 	        this.repositorio.cadastrar(p);
+	        this.repositorio.salvarArquivo();
 	      }
 	      else {
 	    	  if(p == null){
@@ -30,8 +31,9 @@ public class ControladorPassagem {
 	public void alterarPassagem(Passagem passagemAlterada) throws PassagemNaoExisteException {
 		boolean r;
 		if(passagemAlterada != null){
-			
+
 			r = this.repositorio.alterar(passagemAlterada);
+			this.repositorio.salvarArquivo();
 			if(r==false){
 				PassagemNaoExisteException z = new PassagemNaoExisteException(passagemAlterada.toString());
 	    		throw z;
@@ -55,7 +57,7 @@ public class ControladorPassagem {
 		return passagem;
 	}
 	public List<Passagem> listaPassagens(){
-		return this.listaPassagens();
+		return this.repositorio.listar();
 	}
 	public void removerPassagem(Passagem p) throws PassagemNaoExisteException, PassagemJaExisteException {
 		 if (p == null) {
@@ -63,6 +65,7 @@ public class ControladorPassagem {
 		  else {
 		      if (this.repositorio.existe(p.getCodigo()) == false) {
 		        this.repositorio.remover(p.getCodigo());
+		        this.repositorio.salvarArquivo();
 		      }
 		      else {
 		    	  throw new PassagemJaExisteException(p.getCodigo());

@@ -110,7 +110,7 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 								// get reference to the button's stage
 								stage = (Stage) buttonEntrarUsuario.getScene().getWindow();
 								// load up OTHER FXML document
-								root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
+								root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenuOpçoesViagem.fxml"));
 							}
 						}
 					} else {

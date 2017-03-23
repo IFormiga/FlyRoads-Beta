@@ -6,20 +6,26 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import negocio.Passagem;
+import negocio.ViagemOnibus;
 
-public class RepositorioPassagens implements IRepositorioPassagem {
+public class RepositorioPassagens implements IRepositorioPassagem,Serializable {
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -1006587711162983358L;
 	private ArrayList<Passagem> listaPassagens;
 	private static RepositorioPassagens instance;
-	
+
 	private RepositorioPassagens(){
-		this.listaPassagens = new ArrayList<Passagem>(); 
+		this.listaPassagens = new ArrayList<Passagem>();
 	}
-	
+
 	public static RepositorioPassagens getInstance(){
 	    if (instance == null) {
 		      instance = new RepositorioPassagens();
@@ -27,7 +33,7 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 		    }
 		    return instance;
 	}
-	
+
 	public boolean cadastrar(Passagem passagem){
 		try{
 			listaPassagens.add(passagem);
@@ -52,11 +58,11 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 		}
 		return r;
 	}
-	
-	public List<Passagem> listar(){
+
+	public java.util.List<Passagem> listar(){
 		return Collections.unmodifiableList(this.listaPassagens);
 	}
-	
+
 	public Passagem procurar(String codigo){
 		String cod;
 		Passagem r = null;
@@ -68,7 +74,7 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 		}
 		return r;
 	}
-	
+
 	public boolean existe(String codigo){
 		boolean r = false;
 		String cod;
@@ -80,7 +86,7 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 		}
 		return r;
 	}
-	
+
 	public boolean remover(String codigo){
 		String cod;
 		boolean r = false;
@@ -93,7 +99,7 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 		}
 		return r;
 	}
-	
+
 	public void salvarArquivo() {
 
 		if (instance == null) {
@@ -119,7 +125,7 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 		      }
 		    }
 		  }
-	
+
 	private static RepositorioPassagens lerDoArquivo() {
 		RepositorioPassagens instanciaLocal = null;
 
@@ -144,5 +150,5 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 
 	    return instanciaLocal;
 	  }
-	
+
 }

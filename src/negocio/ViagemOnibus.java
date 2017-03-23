@@ -3,6 +3,8 @@ package negocio;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Arrays;
+
+import javafx.collections.ObservableList;
 //VAMOS PENSAR MELHOR NO SISTEMA DE ASSENTOS.
 public class ViagemOnibus extends Entidade {
 	/**
@@ -20,7 +22,7 @@ public class ViagemOnibus extends Entidade {
 	}
 
 	private String codigo;
-	private String assento[] = {"1A","2A","3A","2B","3B"};
+	private String[] assento = {"1A","2A","3A","1B","2B","3B"};
 	private String origem;
 	private String destino;
 	private LocalTime saida;

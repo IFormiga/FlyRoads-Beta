@@ -2,9 +2,14 @@ package negocio;
 
 public class PassagemVoo extends Passagem {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -2845832395728686467L;
 	private Voo flight;
-	public PassagemVoo(String codigo, Usuario user, String assento, Voo flight) {
-		super(codigo, user, assento);
+
+	public PassagemVoo(String preço, String codigo, Usuario user, String assento, Voo flight) {
+		super(preço, codigo, user, assento);
 		this.flight = flight;
 	}
 	public Voo getFlight() {
@@ -21,5 +26,5 @@ public class PassagemVoo extends Passagem {
 		}
 		return r;
 	}
-	
+
 }

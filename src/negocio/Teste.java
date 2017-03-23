@@ -2,6 +2,7 @@ package negocio;
 
 import exceptions.EmpresaNaoExisteException;
 import exceptions.JaExisteVooNesseHorarioException;
+import exceptions.PassagemJaExisteException;
 import exceptions.PassagemNaoExisteException;
 import exceptions.ViagemOnibusJaExisteException;
 import exceptions.ViagemOnibusNaoExisteException;
@@ -31,8 +32,23 @@ public class Teste {
 		controlador.descadastrar("40");
 		System.out.println(controlador.existe("40"));
 		*/
+
 		IFlyRoads fachada = FlyRoadsFachada.getInstance();
-		System.out.println(fachada.procurarUsuario("00000"));
+//		ViagemOnibus viagem = new ViagemOnibus("linha 3", "81237556", "Brasília", "São Paulo",10,0,11,30, 2017, 8, 25,2017, 8, 26);
+//		Usuario user = new Usuario("Nycolas","11459622464","20","Rua pedrinopolis","Masc","12345","Numero qualquer");
+////
+//
+//		PassagemOnibus passagem = new PassagemOnibus("15","2525",user,"1A",viagem);
+//		try {
+//			fachada.venderPassagem(passagem);
+//		} catch (PassagemJaExisteException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+
+	System.out.println(fachada.listaPassagens().toString());
+//		System.out.println(fachada.procurarUsuario("00000"));
+
 
 //		try {
 //			System.out.println(fachada.procurarEmpresa("253718"));
@@ -59,7 +75,7 @@ public class Teste {
 //		System.out.printf("%s\n", fachada.procurarEmpresa(empresa.getNomeEmpresa(), empresa.getCnpj()).toString());
 
 
-//		ViagemOnibus viagem = new ViagemOnibus("linha 3", "81237556", "Brasília", "São Paulo",10,0,11,30, 2017, 8, 25,2017, 8, 26);
+
 //
 //		try {
 //			fachada.CadastrarViagemOnibus(viagem);
@@ -97,7 +113,7 @@ public class Teste {
 //
 //			System.out.println(fachada.listaViagensOnibus());
 
-//Usuario user = new Usuario("Nycolas","11459622464",20,"Rua pedrinopolis","Masc","nlacerda","12345","Numero qualquer");
+
 //		try {
 //	fachada.cadastrarUsuario(user);
 //} catch (Exception e) {

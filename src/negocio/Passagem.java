@@ -1,21 +1,37 @@
 package negocio;
 
+import java.util.List;
 
-public class Passagem {
+public class Passagem extends Entidade{
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -66760464581900161L;
 	private String codigo;
 	private Usuario user;
 	private String assento;
-	
-	public Passagem(String codigo,Usuario user,String assento){
+	private String preço;
+
+
+	public String getPreço() {
+		return preço;
+	}
+
+	public void setPreço(String preço) {
+		this.preço = preço;
+	}
+
+	public Passagem(String preço, String codigo,Usuario user,String assento){
+		this.preço = preço;
 		this.codigo = codigo;
 		this.user = user;
 		this.assento = assento;
 	}
-	
+
 	public String getAssento(){
 		return this.assento;
 	}
-	
+
 	public String getCodigo() {
 		return codigo;
 	}
@@ -55,7 +71,7 @@ public class Passagem {
 
 	@Override
 	public String toString() {
-		return "Passagem [codigo=" + codigo + ", user=" + user + "]";
+		return "Passagem [preço= "+preço+" codigo=" + codigo + ", user=" + user + "]";
 	}
-	 
+
 }

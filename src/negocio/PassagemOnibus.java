@@ -2,10 +2,14 @@ package negocio;
 
 public class PassagemOnibus extends Passagem {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 3339034009713214378L;
 	private ViagemOnibus viagem;
 
-	public PassagemOnibus(String codigo, Usuario user, String assento,ViagemOnibus viagem) {
-		super(codigo, user, assento);
+	public PassagemOnibus(String preço, String codigo, Usuario user, String assento,ViagemOnibus viagem) {
+		super(preço,codigo, user, assento);
 		this.viagem = viagem;
 
 	}
