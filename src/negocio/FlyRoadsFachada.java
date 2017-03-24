@@ -11,6 +11,8 @@ import exceptions.EmpresaNaoExisteException;
 import exceptions.JaExisteVooNesseHorarioException;
 import exceptions.PassagemJaExisteException;
 import exceptions.PassagemNaoExisteException;
+import exceptions.UsuarioJaExisteException;
+import exceptions.UsuarioNaoExisteException;
 import exceptions.ViagemEmAndamentoException;
 import exceptions.ViagemOnibusJaExisteException;
 import exceptions.ViagemOnibusNaoExisteException;
@@ -51,7 +53,7 @@ public class FlyRoadsFachada implements IFlyRoads{
 	public void cadastrarVoo(Voo voo) throws VooJaExisteException, JaExisteVooNesseHorarioException{
 		this.voos.cadastrarVoo(voo);
 	}
-	public void cadastrarUsuario(Usuario user){
+	public void cadastrarUsuario(Usuario user) throws UsuarioJaExisteException{
 		this.usuarios.cadastrarUsuario(user);
 	}
 	public void CadastrarViagemOnibus(ViagemOnibus viagem) throws ViagemOnibusJaExisteException{
@@ -103,7 +105,7 @@ public class FlyRoadsFachada implements IFlyRoads{
 	public Voo procurarVoo(String cod) throws VooNaoExisteException{
 		return this.voos.procurar(cod);
 	}
-	public Usuario procurarUsuario(String cpf){
+	public Usuario procurarUsuario(String cpf) throws UsuarioNaoExisteException{
 		return this.usuarios.procurarUsuario(cpf);
 	}
 	public ViagemOnibus procurarViagemOnibus(String codigo) throws ViagemOnibusNaoExisteException{

@@ -7,11 +7,13 @@ import exceptions.EmpresaNaoExisteException;
 import exceptions.JaExisteVooNesseHorarioException;
 import exceptions.PassagemJaExisteException;
 import exceptions.PassagemNaoExisteException;
+import exceptions.UsuarioJaExisteException;
 import exceptions.ViagemEmAndamentoException;
 import exceptions.ViagemOnibusJaExisteException;
 import exceptions.ViagemOnibusNaoExisteException;
 import exceptions.VooJaExisteException;
 import exceptions.VooNaoExisteException;
+import exceptions.UsuarioNaoExisteException;
 
 public interface IFlyRoads {
 	public abstract void cadastrarEmpresa(Empresa empresa) throws EmpresaJaExisteException;
@@ -20,7 +22,7 @@ public interface IFlyRoads {
 
 	public abstract void cadastrarVoo(Voo voo) throws VooJaExisteException, JaExisteVooNesseHorarioException;
 
-	public abstract void cadastrarUsuario(Usuario user);
+	public abstract void cadastrarUsuario(Usuario user)throws UsuarioJaExisteException;
 
 	public abstract void CadastrarViagemOnibus(ViagemOnibus viagem) throws ViagemOnibusJaExisteException;
 
@@ -54,7 +56,7 @@ public interface IFlyRoads {
 
 	public abstract Voo procurarVoo(String string) throws VooNaoExisteException;
 
-	public abstract Usuario procurarUsuario(String cpf);
+	public abstract Usuario procurarUsuario(String cpf)throws UsuarioNaoExisteException;
 
 	public abstract ViagemOnibus procurarViagemOnibus(String codigo) throws ViagemOnibusNaoExisteException;
 

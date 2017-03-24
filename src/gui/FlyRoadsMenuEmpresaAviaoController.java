@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
@@ -114,11 +115,15 @@ public class FlyRoadsMenuEmpresaAviaoController implements Initializable {
 									fachada.cadastrarVoo(voo);
 								} catch (JaExisteVooNesseHorarioException e) {
 									// TODO Auto-generated catch block
-									e.printStackTrace();
+									Alert alert = new Alert(Alert.AlertType.ERROR);
+									alert.setContentText("Ja Existe Voo Nesse Horario");
+									alert.show();
 								}
 									catch (VooJaExisteException e) {
 								// TODO: handle exception
-								e.printStackTrace();
+										Alert alert = new Alert(Alert.AlertType.ERROR);
+										alert.setContentText("Voo Ja Existe, Cadastre Outro");
+										alert.show();
 
 									}
 
@@ -213,7 +218,22 @@ public class FlyRoadsMenuEmpresaAviaoController implements Initializable {
 
 			}catch(IOException e){
 				e.printStackTrace();
-			}
+			}catch(NumberFormatException e){
+				  FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/TelaException.fxml"));
+					Parent root1 = null;
+					try {
+						root1 = (Parent) fxmlLoader.load();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					stage = new Stage();
+					stage.initModality(Modality.APPLICATION_MODAL);
+					stage.initStyle(StageStyle.UNDECORATED);
+					stage.setTitle("FlyRoads");
+					stage.setScene(new Scene(root1));
+					stage.show();
+			  }
 
 
 		}

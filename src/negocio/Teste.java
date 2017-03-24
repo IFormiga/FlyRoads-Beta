@@ -46,7 +46,7 @@ public class Teste {
 //			e.printStackTrace();
 //		}
 
-	System.out.println(fachada.listaPassagens().toString());
+
 //		System.out.println(fachada.procurarUsuario("00000"));
 
 
@@ -74,7 +74,13 @@ public class Teste {
 //		fachada.cadastrarEmpresa(empresa);
 //		System.out.printf("%s\n", fachada.procurarEmpresa(empresa.getNomeEmpresa(), empresa.getCnpj()).toString());
 
-
+//System.out.println(fachada.listaEmpresas().toString());
+//  try {
+//	System.out.println(fachada.procurarEmpresa("85753").getSenha());
+//} catch (EmpresaNaoExisteException e) {
+//	// TODO Auto-generated catch block
+//	e.printStackTrace();
+//}
 
 //
 //		try {

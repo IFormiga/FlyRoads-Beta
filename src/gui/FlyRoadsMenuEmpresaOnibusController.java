@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -26,8 +27,7 @@ import negocio.ViagemOnibus;
 
 public class FlyRoadsMenuEmpresaOnibusController implements Initializable {
 
-	@FXML
-	Label lblMessagemException;
+
 
     @FXML
     TextField textFieldNomeViagemOnibus;
@@ -115,8 +115,10 @@ public class FlyRoadsMenuEmpresaOnibusController implements Initializable {
 						try {
 							fachada.CadastrarViagemOnibus(viagem);
 						} catch (ViagemOnibusJaExisteException e) {
-
-							lblMessagemException.setText(e.getMessage());
+							Alert alert = new Alert(Alert.AlertType.ERROR);
+							alert.setContentText("Cadastre outra viagem, essa ja existe");
+							alert.show();
+							
 						}
 
 

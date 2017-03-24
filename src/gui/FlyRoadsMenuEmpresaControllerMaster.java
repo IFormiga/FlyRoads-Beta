@@ -25,7 +25,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import negocio.FlyRoadsFachada;
 import negocio.IFlyRoads;
 import negocio.Usuario;
@@ -197,7 +199,22 @@ public class FlyRoadsMenuEmpresaControllerMaster implements Initializable {
 
 			}catch(IOException e){
 				e.printStackTrace();
-			}
+			}catch(NumberFormatException e){
+				  FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/TelaException.fxml"));
+					Parent root1 = null;
+					try {
+						root1 = (Parent) fxmlLoader.load();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					stage = new Stage();
+					stage.initModality(Modality.APPLICATION_MODAL);
+					stage.initStyle(StageStyle.UNDECORATED);
+					stage.setTitle("FlyRoads");
+					stage.setScene(new Scene(root1));
+					stage.show();
+			  }
 
 
 		}

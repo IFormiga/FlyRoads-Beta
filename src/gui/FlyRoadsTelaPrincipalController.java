@@ -12,8 +12,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBase;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -24,8 +26,10 @@ import negocio.FlyRoadsFachada;
 import negocio.IFlyRoads;
 import negocio.Usuario;
 import javafx.scene.layout.VBox;
+import exceptions.UsuarioNaoExisteException;
 
 public class FlyRoadsTelaPrincipalController implements Initializable {
+
 
 	@FXML
 	TextField textFieldCpfUsuario;
@@ -81,6 +85,7 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 					e.printStackTrace();
 				}
 
+
 			}
 		});
 
@@ -93,11 +98,23 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 				try {
 					String cpf = new String(textFieldCpfUsuario.getText());
 					String senha = new String(senhaFieldUsuario.getText());
+					Usuario user = null;
 
-					Usuario user = fachada.procurarUsuario(cpf);
+						try {
+							user = fachada.procurarUsuario(cpf);
+						} catch (UsuarioNaoExisteException e) {
+							// TODO Auto-generated catch block
+							Alert alert = new Alert(Alert.AlertType.ERROR);
+							alert.setContentText("Usuario não existe");
+							alert.show();
+						}
+
+
+
 					user.verificaHierarquia(senha);
 
-					if (user.getCpf().equals(cpf) && user.getSenha().equals(senha)) {
+					if (user.getCpf().equals(cpf)){
+						if(user.getSenha().equals(senha)){
 						if (user.getConfirmacao()) {
 							if (event.getSource() == buttonEntrarUsuario) {
 								// get reference to the button's stage
@@ -107,23 +124,34 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 							}
 						} else {
 							if (event.getSource() == buttonEntrarUsuario) {
+								Alert alert = new Alert(Alert.AlertType.ERROR);
+								alert.setContentText("Digite algum campo");
+								alert.show();
 								// get reference to the button's stage
 								stage = (Stage) buttonEntrarUsuario.getScene().getWindow();
 								// load up OTHER FXML document
-								root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsMenuOpçoesViagem.fxml"));
+								root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
 							}
 						}
-					} else {
-						stage = (Stage) buttonEntrarUsuario.getScene().getWindow();
-						// load up OTHER FXML document
-						root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
+
+					}else{
+						Alert alert = new Alert(Alert.AlertType.ERROR);
+						alert.setContentText("Senha Incorreta");
+						alert.show();
+					}
+					}else{
+						Alert alert = new Alert(Alert.AlertType.ERROR);
+						alert.setContentText("Digite algum campo");
+						alert.show();
 					}
 					Scene scene = new Scene(root);
 					stage.setScene(scene);
 					main.changeStage(stage);
-				} catch (IOException e) {
+				}
+				catch (IOException e) {
 					e.printStackTrace();
 				}
+
 
 			}
 		});
@@ -162,16 +190,24 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 			public void handle(ActionEvent event) {
 				Stage stage = null;
 				Parent root = null;
-				try {
+
 					if (event.getSource() == buttonEnviarEmpresa) {
 						String cnpj = new String(textFieldCnpjEmpresa.getText());
 						String senha = new String(senhaFieldEmpresa.getText());
-						Empresa empresa;
+						Empresa empresa = null;
 						try {
 
-							empresa = fachada.procurarEmpresa(cnpj);
 
-							if (empresa.getCnpj().equals(cnpj)) {
+								try {
+									empresa = fachada.procurarEmpresa(cnpj);
+								} catch (EmpresaNaoExisteException e) {
+									// TODO Auto-generated catch block
+									Alert alert = new Alert(Alert.AlertType.ERROR);
+									alert.setContentText("Empresa nao existe");
+									alert.show();
+								}
+
+							if (empresa.getCnpj().equals(cnpj)){
 								if (empresa.getSenha().equals(senha)) {
 									if (empresa.getRamo().equals("Ônibus")) {
 										// get reference to the button's stage
@@ -192,27 +228,35 @@ public class FlyRoadsTelaPrincipalController implements Initializable {
 												.load(getClass().getResource("/gui/FlyRoadsMenuEmpresaMaster.fxml"));
 
 									}
+									else{
+										Alert alert = new Alert(Alert.AlertType.ERROR);
+										alert.setContentText("Digite algum campo");
+										alert.show();
+									}
 
+								}else{
+									Alert alert = new Alert(Alert.AlertType.ERROR);
+									alert.setContentText("Senha Incorreta");
+									alert.show();
+									stage = (Stage) buttonEnviarEmpresa.getScene().getWindow();
+									root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
 								}
-							} else {
-								stage = (Stage) buttonEnviarEmpresa.getScene().getWindow();
-								root = FXMLLoader.load(getClass().getResource("/gui/FlyRoadsPrincipal.fxml"));
 							}
 
-						} catch (EmpresaNaoExisteException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+							Scene scene = new Scene(root);
+							stage.setScene(scene);
+							main.changeStage(stage);
+
 
 						// create a new scene with root and set the stage
-						Scene scene = new Scene(root);
-						stage.setScene(scene);
-						main.changeStage(stage);
-					}
-				} catch (IOException e) {
+
+
+				}
+					catch (IOException e) {
 					e.printStackTrace();
 				}
 
+			}
 			}
 		});
 
